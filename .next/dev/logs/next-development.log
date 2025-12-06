@@ -1,0 +1,1872 @@
+[00:00:00.432] Server  LOG      ✓ Ready in 330ms
+[00:00:24.960] Server  LOG      ✓ Compiled in 80ms
+[00:02:34.410] Server  LOG      ✓ Compiled in 67ms
+[00:02:42.377] Server  LOG      ✓ Compiled in 68ms
+[00:02:49.354] Server  LOG      ✓ Compiled in 69ms
+[00:05:47.874] Server  ERROR    ⨯ ./src/components/layout/dashboard-shell.tsx:6:1
+Module not found: Can't resolve './theme-toggle'
+  4 | import { MobileNav, MobileHeader } from './mobile-nav';
+  5 | import { UserMenu } from './user-menu';
+> 6 | import { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | interface DashboardShellProps {
+  9 |   children: React.ReactNode;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/dashboard-shell.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/dashboard-shell.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.874] Server  ERROR    ⨯ ./src/components/layout/dashboard-shell.tsx:6:1
+Module not found: Can't resolve './theme-toggle'
+  4 | import { MobileNav, MobileHeader } from './mobile-nav';
+  5 | import { UserMenu } from './user-menu';
+> 6 | import { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | interface DashboardShellProps {
+  9 |   children: React.ReactNode;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/dashboard-shell.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/dashboard-shell.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.875] Server  ERROR    ⨯ ./src/components/layout/dashboard-shell.tsx:6:1
+Module not found: Can't resolve './theme-toggle'
+  4 | import { MobileNav, MobileHeader } from './mobile-nav';
+  5 | import { UserMenu } from './user-menu';
+> 6 | import { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | interface DashboardShellProps {
+  9 |   children: React.ReactNode;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/dashboard-shell.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/dashboard-shell.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.876] Server  ERROR    ⨯ ./src/components/layout/dashboard-shell.tsx:6:1
+Module not found: Can't resolve './theme-toggle'
+  4 | import { MobileNav, MobileHeader } from './mobile-nav';
+  5 | import { UserMenu } from './user-menu';
+> 6 | import { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | interface DashboardShellProps {
+  9 |   children: React.ReactNode;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/dashboard-shell.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/dashboard-shell.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.876] Server  ERROR    ⨯ ./src/components/layout/index.ts:5:1
+Module not found: Can't resolve './theme-toggle'
+  3 | export { MobileNav, MobileHeader } from './mobile-nav';
+  4 | export { UserMenu } from './user-menu';
+> 5 | export { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/index.ts [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/index.ts [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.876] Server  ERROR    ⨯ ./src/components/layout/index.ts:5:1
+Module not found: Can't resolve './theme-toggle'
+  3 | export { MobileNav, MobileHeader } from './mobile-nav';
+  4 | export { UserMenu } from './user-menu';
+> 5 | export { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/index.ts [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/index.ts [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.877] Server  ERROR    ⨯ ./src/components/layout/dashboard-shell.tsx:6:1
+Module not found: Can't resolve './theme-toggle'
+  4 | import { MobileNav, MobileHeader } from './mobile-nav';
+  5 | import { UserMenu } from './user-menu';
+> 6 | import { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | interface DashboardShellProps {
+  9 |   children: React.ReactNode;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/dashboard-shell.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/dashboard-shell.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.877] Server  ERROR    ⨯ ./src/components/layout/dashboard-shell.tsx:6:1
+Module not found: Can't resolve './theme-toggle'
+  4 | import { MobileNav, MobileHeader } from './mobile-nav';
+  5 | import { UserMenu } from './user-menu';
+> 6 | import { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | interface DashboardShellProps {
+  9 |   children: React.ReactNode;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/dashboard-shell.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/dashboard-shell.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.878] Server  ERROR    ⨯ ./src/components/layout/dashboard-shell.tsx:6:1
+Module not found: Can't resolve './theme-toggle'
+  4 | import { MobileNav, MobileHeader } from './mobile-nav';
+  5 | import { UserMenu } from './user-menu';
+> 6 | import { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | interface DashboardShellProps {
+  9 |   children: React.ReactNode;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/dashboard-shell.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/dashboard-shell.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.878] Server  ERROR    ⨯ ./src/components/layout/dashboard-shell.tsx:6:1
+Module not found: Can't resolve './theme-toggle'
+  4 | import { MobileNav, MobileHeader } from './mobile-nav';
+  5 | import { UserMenu } from './user-menu';
+> 6 | import { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | interface DashboardShellProps {
+  9 |   children: React.ReactNode;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/dashboard-shell.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/dashboard-shell.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.878] Server  ERROR    ⨯ ./src/components/layout/index.ts:5:1
+Module not found: Can't resolve './theme-toggle'
+  3 | export { MobileNav, MobileHeader } from './mobile-nav';
+  4 | export { UserMenu } from './user-menu';
+> 5 | export { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/index.ts [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/index.ts [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.879] Server  ERROR    ⨯ ./src/components/layout/index.ts:5:1
+Module not found: Can't resolve './theme-toggle'
+  3 | export { MobileNav, MobileHeader } from './mobile-nav';
+  4 | export { UserMenu } from './user-menu';
+> 5 | export { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/index.ts [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/index.ts [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.880] Server  ERROR    ⨯ ./src/components/layout/dashboard-shell.tsx:6:1
+Module not found: Can't resolve './theme-toggle'
+  4 | import { MobileNav, MobileHeader } from './mobile-nav';
+  5 | import { UserMenu } from './user-menu';
+> 6 | import { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | interface DashboardShellProps {
+  9 |   children: React.ReactNode;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/dashboard-shell.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/dashboard-shell.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.880] Server  ERROR    ⨯ ./src/components/layout/dashboard-shell.tsx:6:1
+Module not found: Can't resolve './theme-toggle'
+  4 | import { MobileNav, MobileHeader } from './mobile-nav';
+  5 | import { UserMenu } from './user-menu';
+> 6 | import { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | interface DashboardShellProps {
+  9 |   children: React.ReactNode;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/dashboard-shell.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/dashboard-shell.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.881] Server  ERROR    ⨯ ./src/components/layout/dashboard-shell.tsx:6:1
+Module not found: Can't resolve './theme-toggle'
+  4 | import { MobileNav, MobileHeader } from './mobile-nav';
+  5 | import { UserMenu } from './user-menu';
+> 6 | import { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | interface DashboardShellProps {
+  9 |   children: React.ReactNode;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/dashboard-shell.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/dashboard-shell.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.881] Server  ERROR    ⨯ ./src/components/layout/dashboard-shell.tsx:6:1
+Module not found: Can't resolve './theme-toggle'
+  4 | import { MobileNav, MobileHeader } from './mobile-nav';
+  5 | import { UserMenu } from './user-menu';
+> 6 | import { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | interface DashboardShellProps {
+  9 |   children: React.ReactNode;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/dashboard-shell.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/dashboard-shell.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.881] Server  ERROR    ⨯ ./src/components/layout/index.ts:5:1
+Module not found: Can't resolve './theme-toggle'
+  3 | export { MobileNav, MobileHeader } from './mobile-nav';
+  4 | export { UserMenu } from './user-menu';
+> 5 | export { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/index.ts [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/index.ts [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.881] Server  ERROR    ⨯ ./src/components/layout/index.ts:5:1
+Module not found: Can't resolve './theme-toggle'
+  3 | export { MobileNav, MobileHeader } from './mobile-nav';
+  4 | export { UserMenu } from './user-menu';
+> 5 | export { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/index.ts [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/index.ts [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.882] Server  ERROR    ⨯ ./src/components/layout/dashboard-shell.tsx:6:1
+Module not found: Can't resolve './theme-toggle'
+  4 | import { MobileNav, MobileHeader } from './mobile-nav';
+  5 | import { UserMenu } from './user-menu';
+> 6 | import { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | interface DashboardShellProps {
+  9 |   children: React.ReactNode;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/dashboard-shell.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/dashboard-shell.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.882] Server  ERROR    ⨯ ./src/components/layout/dashboard-shell.tsx:6:1
+Module not found: Can't resolve './theme-toggle'
+  4 | import { MobileNav, MobileHeader } from './mobile-nav';
+  5 | import { UserMenu } from './user-menu';
+> 6 | import { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | interface DashboardShellProps {
+  9 |   children: React.ReactNode;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/dashboard-shell.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/dashboard-shell.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.883] Server  ERROR    ⨯ ./src/components/layout/dashboard-shell.tsx:6:1
+Module not found: Can't resolve './theme-toggle'
+  4 | import { MobileNav, MobileHeader } from './mobile-nav';
+  5 | import { UserMenu } from './user-menu';
+> 6 | import { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | interface DashboardShellProps {
+  9 |   children: React.ReactNode;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/dashboard-shell.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/dashboard-shell.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.883] Server  ERROR    ⨯ ./src/components/layout/dashboard-shell.tsx:6:1
+Module not found: Can't resolve './theme-toggle'
+  4 | import { MobileNav, MobileHeader } from './mobile-nav';
+  5 | import { UserMenu } from './user-menu';
+> 6 | import { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | interface DashboardShellProps {
+  9 |   children: React.ReactNode;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/dashboard-shell.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/dashboard-shell.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.883] Server  ERROR    ⨯ ./src/components/layout/index.ts:5:1
+Module not found: Can't resolve './theme-toggle'
+  3 | export { MobileNav, MobileHeader } from './mobile-nav';
+  4 | export { UserMenu } from './user-menu';
+> 5 | export { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/index.ts [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/index.ts [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.884] Server  ERROR    ⨯ ./src/components/layout/index.ts:5:1
+Module not found: Can't resolve './theme-toggle'
+  3 | export { MobileNav, MobileHeader } from './mobile-nav';
+  4 | export { UserMenu } from './user-menu';
+> 5 | export { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/index.ts [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/index.ts [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.885] Server  ERROR    ⨯ ./src/components/layout/dashboard-shell.tsx:6:1
+Module not found: Can't resolve './theme-toggle'
+  4 | import { MobileNav, MobileHeader } from './mobile-nav';
+  5 | import { UserMenu } from './user-menu';
+> 6 | import { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | interface DashboardShellProps {
+  9 |   children: React.ReactNode;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/dashboard-shell.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/dashboard-shell.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.885] Server  ERROR    ⨯ ./src/components/layout/dashboard-shell.tsx:6:1
+Module not found: Can't resolve './theme-toggle'
+  4 | import { MobileNav, MobileHeader } from './mobile-nav';
+  5 | import { UserMenu } from './user-menu';
+> 6 | import { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | interface DashboardShellProps {
+  9 |   children: React.ReactNode;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/dashboard-shell.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/dashboard-shell.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.885] Server  ERROR    ⨯ ./src/components/layout/dashboard-shell.tsx:6:1
+Module not found: Can't resolve './theme-toggle'
+  4 | import { MobileNav, MobileHeader } from './mobile-nav';
+  5 | import { UserMenu } from './user-menu';
+> 6 | import { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | interface DashboardShellProps {
+  9 |   children: React.ReactNode;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/dashboard-shell.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/dashboard-shell.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.886] Server  ERROR    ⨯ ./src/components/layout/dashboard-shell.tsx:6:1
+Module not found: Can't resolve './theme-toggle'
+  4 | import { MobileNav, MobileHeader } from './mobile-nav';
+  5 | import { UserMenu } from './user-menu';
+> 6 | import { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | interface DashboardShellProps {
+  9 |   children: React.ReactNode;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/dashboard-shell.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/dashboard-shell.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.886] Server  ERROR    ⨯ ./src/components/layout/index.ts:5:1
+Module not found: Can't resolve './theme-toggle'
+  3 | export { MobileNav, MobileHeader } from './mobile-nav';
+  4 | export { UserMenu } from './user-menu';
+> 5 | export { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/index.ts [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/index.ts [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.886] Server  ERROR    ⨯ ./src/components/layout/index.ts:5:1
+Module not found: Can't resolve './theme-toggle'
+  3 | export { MobileNav, MobileHeader } from './mobile-nav';
+  4 | export { UserMenu } from './user-menu';
+> 5 | export { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/index.ts [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/index.ts [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.887] Server  ERROR    ⨯ ./src/components/layout/dashboard-shell.tsx:6:1
+Module not found: Can't resolve './theme-toggle'
+  4 | import { MobileNav, MobileHeader } from './mobile-nav';
+  5 | import { UserMenu } from './user-menu';
+> 6 | import { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | interface DashboardShellProps {
+  9 |   children: React.ReactNode;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/dashboard-shell.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/dashboard-shell.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.887] Server  ERROR    ⨯ ./src/components/layout/dashboard-shell.tsx:6:1
+Module not found: Can't resolve './theme-toggle'
+  4 | import { MobileNav, MobileHeader } from './mobile-nav';
+  5 | import { UserMenu } from './user-menu';
+> 6 | import { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | interface DashboardShellProps {
+  9 |   children: React.ReactNode;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/dashboard-shell.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/dashboard-shell.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.887] Server  ERROR    ⨯ ./src/components/layout/dashboard-shell.tsx:6:1
+Module not found: Can't resolve './theme-toggle'
+  4 | import { MobileNav, MobileHeader } from './mobile-nav';
+  5 | import { UserMenu } from './user-menu';
+> 6 | import { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | interface DashboardShellProps {
+  9 |   children: React.ReactNode;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/dashboard-shell.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/dashboard-shell.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.887] Server  ERROR    ⨯ ./src/components/layout/dashboard-shell.tsx:6:1
+Module not found: Can't resolve './theme-toggle'
+  4 | import { MobileNav, MobileHeader } from './mobile-nav';
+  5 | import { UserMenu } from './user-menu';
+> 6 | import { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | interface DashboardShellProps {
+  9 |   children: React.ReactNode;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/dashboard-shell.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/dashboard-shell.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.887] Server  ERROR    ⨯ ./src/components/layout/index.ts:5:1
+Module not found: Can't resolve './theme-toggle'
+  3 | export { MobileNav, MobileHeader } from './mobile-nav';
+  4 | export { UserMenu } from './user-menu';
+> 5 | export { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/index.ts [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/index.ts [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.888] Server  ERROR    ⨯ ./src/components/layout/index.ts:5:1
+Module not found: Can't resolve './theme-toggle'
+  3 | export { MobileNav, MobileHeader } from './mobile-nav';
+  4 | export { UserMenu } from './user-menu';
+> 5 | export { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/index.ts [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/index.ts [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.888] Server  ERROR    ⨯ ./src/components/layout/dashboard-shell.tsx:6:1
+Module not found: Can't resolve './theme-toggle'
+  4 | import { MobileNav, MobileHeader } from './mobile-nav';
+  5 | import { UserMenu } from './user-menu';
+> 6 | import { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | interface DashboardShellProps {
+  9 |   children: React.ReactNode;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/dashboard-shell.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/dashboard-shell.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.889] Server  ERROR    ⨯ ./src/components/layout/dashboard-shell.tsx:6:1
+Module not found: Can't resolve './theme-toggle'
+  4 | import { MobileNav, MobileHeader } from './mobile-nav';
+  5 | import { UserMenu } from './user-menu';
+> 6 | import { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | interface DashboardShellProps {
+  9 |   children: React.ReactNode;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/dashboard-shell.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/dashboard-shell.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.889] Server  ERROR    ⨯ ./src/components/layout/dashboard-shell.tsx:6:1
+Module not found: Can't resolve './theme-toggle'
+  4 | import { MobileNav, MobileHeader } from './mobile-nav';
+  5 | import { UserMenu } from './user-menu';
+> 6 | import { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | interface DashboardShellProps {
+  9 |   children: React.ReactNode;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/dashboard-shell.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/dashboard-shell.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.890] Server  ERROR    ⨯ ./src/components/layout/dashboard-shell.tsx:6:1
+Module not found: Can't resolve './theme-toggle'
+  4 | import { MobileNav, MobileHeader } from './mobile-nav';
+  5 | import { UserMenu } from './user-menu';
+> 6 | import { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | interface DashboardShellProps {
+  9 |   children: React.ReactNode;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/dashboard-shell.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/dashboard-shell.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.890] Server  ERROR    ⨯ ./src/components/layout/index.ts:5:1
+Module not found: Can't resolve './theme-toggle'
+  3 | export { MobileNav, MobileHeader } from './mobile-nav';
+  4 | export { UserMenu } from './user-menu';
+> 5 | export { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/index.ts [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/index.ts [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.890] Server  ERROR    ⨯ ./src/components/layout/index.ts:5:1
+Module not found: Can't resolve './theme-toggle'
+  3 | export { MobileNav, MobileHeader } from './mobile-nav';
+  4 | export { UserMenu } from './user-menu';
+> 5 | export { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/index.ts [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/index.ts [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.907] Server  LOG      ✓ Compiled in 19ms
+[00:05:47.953] Server  ERROR    ⨯ ./src/components/layout/dashboard-shell.tsx:6:1
+Module not found: Can't resolve './theme-toggle'
+  4 | import { MobileNav, MobileHeader } from './mobile-nav';
+  5 | import { UserMenu } from './user-menu';
+> 6 | import { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | interface DashboardShellProps {
+  9 |   children: React.ReactNode;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/dashboard-shell.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/dashboard-shell.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.954] Server  ERROR    ⨯ ./src/components/layout/dashboard-shell.tsx:6:1
+Module not found: Can't resolve './theme-toggle'
+  4 | import { MobileNav, MobileHeader } from './mobile-nav';
+  5 | import { UserMenu } from './user-menu';
+> 6 | import { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | interface DashboardShellProps {
+  9 |   children: React.ReactNode;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/dashboard-shell.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/dashboard-shell.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.954] Server  ERROR    ⨯ ./src/components/layout/dashboard-shell.tsx:6:1
+Module not found: Can't resolve './theme-toggle'
+  4 | import { MobileNav, MobileHeader } from './mobile-nav';
+  5 | import { UserMenu } from './user-menu';
+> 6 | import { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | interface DashboardShellProps {
+  9 |   children: React.ReactNode;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/dashboard-shell.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/dashboard-shell.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.954] Server  ERROR    ⨯ ./src/components/layout/dashboard-shell.tsx:6:1
+Module not found: Can't resolve './theme-toggle'
+  4 | import { MobileNav, MobileHeader } from './mobile-nav';
+  5 | import { UserMenu } from './user-menu';
+> 6 | import { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | interface DashboardShellProps {
+  9 |   children: React.ReactNode;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/dashboard-shell.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/dashboard-shell.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.955] Server  ERROR    ⨯ ./src/components/layout/dashboard-shell.tsx:6:1
+Module not found: Can't resolve './theme-toggle'
+  4 | import { MobileNav, MobileHeader } from './mobile-nav';
+  5 | import { UserMenu } from './user-menu';
+> 6 | import { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | interface DashboardShellProps {
+  9 |   children: React.ReactNode;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/dashboard-shell.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/dashboard-shell.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.955] Server  ERROR    ⨯ ./src/components/layout/dashboard-shell.tsx:6:1
+Module not found: Can't resolve './theme-toggle'
+  4 | import { MobileNav, MobileHeader } from './mobile-nav';
+  5 | import { UserMenu } from './user-menu';
+> 6 | import { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | interface DashboardShellProps {
+  9 |   children: React.ReactNode;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/dashboard-shell.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/dashboard-shell.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.955] Server  ERROR    ⨯ ./src/components/layout/dashboard-shell.tsx:6:1
+Module not found: Can't resolve './theme-toggle'
+  4 | import { MobileNav, MobileHeader } from './mobile-nav';
+  5 | import { UserMenu } from './user-menu';
+> 6 | import { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | interface DashboardShellProps {
+  9 |   children: React.ReactNode;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/dashboard-shell.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/dashboard-shell.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.956] Server  ERROR    ⨯ ./src/components/layout/dashboard-shell.tsx:6:1
+Module not found: Can't resolve './theme-toggle'
+  4 | import { MobileNav, MobileHeader } from './mobile-nav';
+  5 | import { UserMenu } from './user-menu';
+> 6 | import { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | interface DashboardShellProps {
+  9 |   children: React.ReactNode;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/dashboard-shell.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/dashboard-shell.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.956] Server  ERROR    ⨯ ./src/components/layout/dashboard-shell.tsx:6:1
+Module not found: Can't resolve './theme-toggle'
+  4 | import { MobileNav, MobileHeader } from './mobile-nav';
+  5 | import { UserMenu } from './user-menu';
+> 6 | import { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | interface DashboardShellProps {
+  9 |   children: React.ReactNode;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/dashboard-shell.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/dashboard-shell.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.957] Server  ERROR    ⨯ ./src/components/layout/dashboard-shell.tsx:6:1
+Module not found: Can't resolve './theme-toggle'
+  4 | import { MobileNav, MobileHeader } from './mobile-nav';
+  5 | import { UserMenu } from './user-menu';
+> 6 | import { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | interface DashboardShellProps {
+  9 |   children: React.ReactNode;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/dashboard-shell.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/dashboard-shell.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.957] Server  ERROR    ⨯ ./src/components/layout/dashboard-shell.tsx:6:1
+Module not found: Can't resolve './theme-toggle'
+  4 | import { MobileNav, MobileHeader } from './mobile-nav';
+  5 | import { UserMenu } from './user-menu';
+> 6 | import { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | interface DashboardShellProps {
+  9 |   children: React.ReactNode;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/dashboard-shell.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/dashboard-shell.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.957] Server  ERROR    ⨯ ./src/components/layout/dashboard-shell.tsx:6:1
+Module not found: Can't resolve './theme-toggle'
+  4 | import { MobileNav, MobileHeader } from './mobile-nav';
+  5 | import { UserMenu } from './user-menu';
+> 6 | import { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | interface DashboardShellProps {
+  9 |   children: React.ReactNode;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/dashboard-shell.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/dashboard-shell.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.958] Server  ERROR    ⨯ ./src/components/layout/dashboard-shell.tsx:6:1
+Module not found: Can't resolve './theme-toggle'
+  4 | import { MobileNav, MobileHeader } from './mobile-nav';
+  5 | import { UserMenu } from './user-menu';
+> 6 | import { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | interface DashboardShellProps {
+  9 |   children: React.ReactNode;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/dashboard-shell.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/dashboard-shell.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.958] Server  ERROR    ⨯ ./src/components/layout/dashboard-shell.tsx:6:1
+Module not found: Can't resolve './theme-toggle'
+  4 | import { MobileNav, MobileHeader } from './mobile-nav';
+  5 | import { UserMenu } from './user-menu';
+> 6 | import { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | interface DashboardShellProps {
+  9 |   children: React.ReactNode;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/dashboard-shell.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/dashboard-shell.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.959] Server  ERROR    ⨯ ./src/components/layout/dashboard-shell.tsx:6:1
+Module not found: Can't resolve './theme-toggle'
+  4 | import { MobileNav, MobileHeader } from './mobile-nav';
+  5 | import { UserMenu } from './user-menu';
+> 6 | import { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | interface DashboardShellProps {
+  9 |   children: React.ReactNode;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/dashboard-shell.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/dashboard-shell.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.959] Server  ERROR    ⨯ ./src/components/layout/dashboard-shell.tsx:6:1
+Module not found: Can't resolve './theme-toggle'
+  4 | import { MobileNav, MobileHeader } from './mobile-nav';
+  5 | import { UserMenu } from './user-menu';
+> 6 | import { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | interface DashboardShellProps {
+  9 |   children: React.ReactNode;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/dashboard-shell.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/dashboard-shell.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.959] Server  ERROR    ⨯ ./src/components/layout/dashboard-shell.tsx:6:1
+Module not found: Can't resolve './theme-toggle'
+  4 | import { MobileNav, MobileHeader } from './mobile-nav';
+  5 | import { UserMenu } from './user-menu';
+> 6 | import { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | interface DashboardShellProps {
+  9 |   children: React.ReactNode;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/dashboard-shell.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/dashboard-shell.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.960] Server  ERROR    ⨯ ./src/components/layout/dashboard-shell.tsx:6:1
+Module not found: Can't resolve './theme-toggle'
+  4 | import { MobileNav, MobileHeader } from './mobile-nav';
+  5 | import { UserMenu } from './user-menu';
+> 6 | import { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | interface DashboardShellProps {
+  9 |   children: React.ReactNode;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/dashboard-shell.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/dashboard-shell.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.960] Server  ERROR    ⨯ ./src/components/layout/dashboard-shell.tsx:6:1
+Module not found: Can't resolve './theme-toggle'
+  4 | import { MobileNav, MobileHeader } from './mobile-nav';
+  5 | import { UserMenu } from './user-menu';
+> 6 | import { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | interface DashboardShellProps {
+  9 |   children: React.ReactNode;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/dashboard-shell.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/dashboard-shell.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.960] Server  ERROR    ⨯ ./src/components/layout/dashboard-shell.tsx:6:1
+Module not found: Can't resolve './theme-toggle'
+  4 | import { MobileNav, MobileHeader } from './mobile-nav';
+  5 | import { UserMenu } from './user-menu';
+> 6 | import { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | interface DashboardShellProps {
+  9 |   children: React.ReactNode;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/dashboard-shell.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/dashboard-shell.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.960] Server  ERROR    ⨯ ./src/components/layout/dashboard-shell.tsx:6:1
+Module not found: Can't resolve './theme-toggle'
+  4 | import { MobileNav, MobileHeader } from './mobile-nav';
+  5 | import { UserMenu } from './user-menu';
+> 6 | import { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | interface DashboardShellProps {
+  9 |   children: React.ReactNode;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/dashboard-shell.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/dashboard-shell.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.961] Server  ERROR    ⨯ ./src/components/layout/dashboard-shell.tsx:6:1
+Module not found: Can't resolve './theme-toggle'
+  4 | import { MobileNav, MobileHeader } from './mobile-nav';
+  5 | import { UserMenu } from './user-menu';
+> 6 | import { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | interface DashboardShellProps {
+  9 |   children: React.ReactNode;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/dashboard-shell.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/dashboard-shell.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.961] Server  ERROR    ⨯ ./src/components/layout/dashboard-shell.tsx:6:1
+Module not found: Can't resolve './theme-toggle'
+  4 | import { MobileNav, MobileHeader } from './mobile-nav';
+  5 | import { UserMenu } from './user-menu';
+> 6 | import { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | interface DashboardShellProps {
+  9 |   children: React.ReactNode;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/dashboard-shell.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/dashboard-shell.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.961] Server  ERROR    ⨯ ./src/components/layout/dashboard-shell.tsx:6:1
+Module not found: Can't resolve './theme-toggle'
+  4 | import { MobileNav, MobileHeader } from './mobile-nav';
+  5 | import { UserMenu } from './user-menu';
+> 6 | import { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | interface DashboardShellProps {
+  9 |   children: React.ReactNode;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/dashboard-shell.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/dashboard-shell.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.961] Server  ERROR    ⨯ ./src/components/layout/dashboard-shell.tsx:6:1
+Module not found: Can't resolve './theme-toggle'
+  4 | import { MobileNav, MobileHeader } from './mobile-nav';
+  5 | import { UserMenu } from './user-menu';
+> 6 | import { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | interface DashboardShellProps {
+  9 |   children: React.ReactNode;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/dashboard-shell.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/dashboard-shell.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.961] Server  ERROR    ⨯ ./src/components/layout/dashboard-shell.tsx:6:1
+Module not found: Can't resolve './theme-toggle'
+  4 | import { MobileNav, MobileHeader } from './mobile-nav';
+  5 | import { UserMenu } from './user-menu';
+> 6 | import { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | interface DashboardShellProps {
+  9 |   children: React.ReactNode;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/dashboard-shell.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/dashboard-shell.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.962] Server  ERROR    ⨯ ./src/components/layout/dashboard-shell.tsx:6:1
+Module not found: Can't resolve './theme-toggle'
+  4 | import { MobileNav, MobileHeader } from './mobile-nav';
+  5 | import { UserMenu } from './user-menu';
+> 6 | import { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | interface DashboardShellProps {
+  9 |   children: React.ReactNode;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/dashboard-shell.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/dashboard-shell.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.962] Server  ERROR    ⨯ ./src/components/layout/dashboard-shell.tsx:6:1
+Module not found: Can't resolve './theme-toggle'
+  4 | import { MobileNav, MobileHeader } from './mobile-nav';
+  5 | import { UserMenu } from './user-menu';
+> 6 | import { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | interface DashboardShellProps {
+  9 |   children: React.ReactNode;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/dashboard-shell.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/dashboard-shell.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:47.986] Server  LOG      ✓ Compiled in 13ms
+[00:05:48.088] Browser ERROR   ./src/components/layout/dashboard-shell.tsx:6:1
+Module not found: Can't resolve './theme-toggle'
+  4 | import { MobileNav, MobileHeader } from './mobile-nav';
+  5 | import { UserMenu } from './user-menu';
+> 6 | import { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | interface DashboardShellProps {
+  9 |   children: React.ReactNode;
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/dashboard-shell.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/dashboard-shell.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:05:48.088] Browser ERROR   ./src/components/layout/index.ts:5:1
+Module not found: Can't resolve './theme-toggle'
+  3 | export { MobileNav, MobileHeader } from './mobile-nav';
+  4 | export { UserMenu } from './user-menu';
+> 5 | export { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/index.ts [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/index.ts [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:05:48.088] Browser ERROR   ./src/components/layout/dashboard-shell.tsx:6:1
+Module not found: Can't resolve './theme-toggle'
+  4 | import { MobileNav, MobileHeader } from './mobile-nav';
+  5 | import { UserMenu } from './user-menu';
+> 6 | import { ThemeToggle } from './theme-toggle';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | interface DashboardShellProps {
+  9 |   children: React.ReactNode;
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/dashboard-shell.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/dashboard-shell.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:05:53.619] Browser ERROR   uncaughtError: ReferenceError: ThemeToggle is not defined
+[00:05:58.504] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:05:58.573] Server  LOG      ✓ Compiled in 23ms
+[00:07:37.575] Server  LOG      ✓ Compiled in 12ms
+[00:08:15.560] Server  LOG      ✓ Compiled in 20ms
+[00:20:09.023] Server  LOG      ✓ Compiled in 25ms
+[00:20:29.625] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:21:14.809] Browser ERROR   uncaughtError: Error: Cannot find the middleware module
+[00:21:32.211] Server  LOG      ✓ Compiled in 31ms

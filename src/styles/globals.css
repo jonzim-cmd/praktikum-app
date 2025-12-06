@@ -1,0 +1,155 @@
+@import "tailwindcss";
+
+@theme {
+  /* Primary: Violett */
+  --color-primary: #694AFF;
+  --color-primary-hover: #7B5FFF;
+  --color-primary-light: rgba(105, 74, 255, 0.15);
+  --color-primary-foreground: #111111;
+
+  /* Accent: Gleich wie Primary (Violett) */
+  --color-accent: #694AFF;
+  --color-accent-hover: #7B5FFF;
+  --color-accent-light: rgba(105, 74, 255, 0.15);
+  --color-accent-foreground: #111111;
+
+  /* Backgrounds: Dunkles Theme */
+  --color-background: #111111;
+  --color-background-subtle: #1E1E1E;
+  --color-background-muted: #2A2A2A;
+  --color-background-elevated: #1E1E1E;
+
+  /* Foregrounds: Hell auf Dunkel */
+  --color-foreground: #FFFFFF;
+  --color-foreground-muted: #A0A0A0;
+  --color-foreground-subtle: #6B6B6B;
+
+  /* Borders */
+  --color-border: #2A2A2A;
+  --color-border-strong: #3D3D3D;
+  --color-border-focus: #694AFF;
+
+  /* Status Colors */
+  --color-success: #41DF82;
+  --color-success-bg: rgba(65, 223, 130, 0.15);
+  --color-success-text: #41DF82;
+
+  --color-warning: #FF5900;
+  --color-warning-bg: rgba(255, 89, 0, 0.15);
+  --color-warning-text: #FF5900;
+
+  --color-error: #D7003D;
+  --color-error-bg: rgba(215, 0, 61, 0.15);
+  --color-error-text: #D7003D;
+
+  /* Info: Gleich wie Primary (Violett) */
+  --color-info: #694AFF;
+  --color-info-bg: rgba(105, 74, 255, 0.15);
+  --color-info-text: #694AFF;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -4px rgba(0, 0, 0, 0.4);
+  --shadow-primary: 0 0 20px 0 rgba(105, 74, 255, 0.3);
+
+  /* Font Families */
+  --font-display: var(--font-display);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+
+  /* Radii */
+  --radius: 0.5rem;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-pill: 42px;
+
+  /* Animations */
+  --animate-fade-in-up: fadeInUp 0.3s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+  --animate-scale-in: scaleIn 0.2s cubic-bezier(0, 0, 0.2, 1) forwards;
+  --animate-shimmer: shimmer 2s linear infinite;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  }
+}
+
+/* Dark Mode - identisch mit Light (beide dunkel) */
+.dark {
+  --color-primary: #694AFF;
+  --color-primary-hover: #7B5FFF;
+  --color-primary-light: rgba(105, 74, 255, 0.15);
+  --color-primary-foreground: #111111;
+
+  --color-accent: #694AFF;
+  --color-accent-hover: #7B5FFF;
+  --color-accent-light: rgba(105, 74, 255, 0.15);
+  --color-accent-foreground: #111111;
+
+  --color-background: #111111;
+  --color-background-subtle: #1E1E1E;
+  --color-background-muted: #2A2A2A;
+  --color-background-elevated: #1E1E1E;
+
+  --color-foreground: #FFFFFF;
+  --color-foreground-muted: #A0A0A0;
+  --color-foreground-subtle: #6B6B6B;
+
+  --color-border: #2A2A2A;
+  --color-border-strong: #3D3D3D;
+  --color-border-focus: #694AFF;
+
+  --color-success: #41DF82;
+  --color-success-bg: rgba(65, 223, 130, 0.15);
+  --color-success-text: #41DF82;
+
+  --color-warning: #FF5900;
+  --color-warning-bg: rgba(255, 89, 0, 0.15);
+  --color-warning-text: #FF5900;
+
+  --color-error: #D7003D;
+  --color-error-bg: rgba(215, 0, 61, 0.15);
+  --color-error-text: #D7003D;
+
+  --color-info: #694AFF;
+  --color-info-bg: rgba(105, 74, 255, 0.15);
+  --color-info-text: #694AFF;
+
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -4px rgba(0, 0, 0, 0.4);
+  --shadow-primary: 0 0 20px 0 rgba(105, 74, 255, 0.3);
+}
+
+/* Keyframe Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes shimmer {
+  from { background-position: -200% 0; }
+  to { background-position: 200% 0; }
+}
