@@ -1,8 +1,17 @@
 {
   "/(auth)/login/page": "/login",
+  "/(dashboard)/admin/benutzer/neu/page": "/admin/benutzer/neu",
+  "/(dashboard)/admin/benutzer/page": "/admin/benutzer",
+  "/(dashboard)/admin/page": "/admin",
+  "/(dashboard)/admin/schulen/neu/page": "/admin/schulen/neu",
+  "/(dashboard)/admin/schulen/page": "/admin/schulen",
+  "/(dashboard)/betrieb/page": "/betrieb",
   "/(dashboard)/lehrer/page": "/lehrer",
+  "/(dashboard)/schueler/page": "/schueler",
   "/_global-error/page": "/_global-error",
   "/_not-found/page": "/_not-found",
+  "/api/admin/benutzer/route": "/api/admin/benutzer",
+  "/api/admin/schulen/route": "/api/admin/schulen",
   "/api/auth/[...all]/route": "/api/auth/[...all]",
   "/page": "/"
 }

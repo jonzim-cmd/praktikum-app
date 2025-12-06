@@ -3,11 +3,116 @@
 ## Aktueller Stand
 
 **Datum:** 2025-12-06
-**Phase:** Projekt-Setup & Grundstruktur
+**Phase:** MVP-Entwicklung
+**Ziel:** Funktionsfähiger MVP mit durchgängigem Praktikums-Workflow
 
 ---
 
-## Abgeschlossene Schritte
+## 🎯 MVP-Ziel
+
+Ein durchgängiger Workflow von "Schüler loggt sich ein" bis "Zertifikat wird generiert":
+- Schüler sieht echten Fortschritt, bestätigt Tage, schreibt Berichte
+- Betrieb bestätigt Anwesenheit, gibt Bewertung ab
+- Lehrkraft sieht Ampel-Status aller Schüler, plant Besuche
+- Admin verwaltet Schule, Benutzer, Konfiguration
+
+---
+
+## 📋 MVP-Phasen & Status
+
+### Phase 1: Kern-Workflow ⬅️ AKTUELL
+> Tägliche Nutzung durch Schüler, Betriebe, Lehrkräfte
+
+- [ ] **11. Dashboards mit echten Daten**
+  - [ ] Schüler-Dashboard: Daten aus DB laden
+  - [ ] Betrieb-Dashboard: Praktikanten aus DB laden
+  - [ ] Lehrer-Dashboard: Betreute Schüler aus DB laden
+  - [ ] Server Components für Datenabfrage
+
+- [ ] **12. Tage-Tracking**
+  - [ ] Schüler: Tag als absolviert markieren
+  - [ ] Betrieb: Anwesenheit bestätigen (einzeln + gesammelt)
+  - [ ] Fortschrittsbalken mit echten Daten
+  - [ ] Übersicht offene Bestätigungen
+
+- [ ] **13. Berichtsheft**
+  - [ ] Bericht erstellen (täglich/wöchentlich)
+  - [ ] Bericht bearbeiten
+  - [ ] Betrieb zeichnet ab
+  - [ ] Lehrkraft kommentiert
+
+- [ ] **14. Krankmeldung**
+  - [ ] Krankmeldung erstellen
+  - [ ] Automatische Benachrichtigung (Betrieb + Lehrkraft)
+  - [ ] Nachholpflicht berechnen
+
+### Phase 2: Verwaltung
+> Einrichtung und Konfiguration
+
+- [ ] **15. Betriebe verwalten**
+  - [ ] Betrieb anlegen (Formular)
+  - [ ] Betrieb bearbeiten
+  - [ ] Kartenansicht (Leaflet + OpenStreetMap)
+  - [ ] Weiterleitung zu Maps-App
+
+- [ ] **16. Schüler & Praktika zuweisen**
+  - [ ] Schüler anlegen/importieren
+  - [ ] Praktikum erstellen und Schüler zuweisen
+  - [ ] Lehrkraft zuweisen (primär + Vertretung)
+  - [ ] Betrieb/Block zuweisen
+
+- [ ] **17. Meilensteine konfigurieren**
+  - [ ] Standard-Meilensteine anzeigen
+  - [ ] Deadlines anpassen
+  - [ ] Meilenstein als erledigt markieren
+
+### Phase 3: Dokumente
+> PDF-Generierung und Datei-Upload
+
+- [ ] **18. Datei-Upload**
+  - [ ] Upload-Komponente
+  - [ ] Vertrag hochladen (unterschrieben)
+  - [ ] Attest hochladen
+  - [ ] Dateien anzeigen/herunterladen
+
+- [ ] **19. PDF: Vertrag generieren**
+  - [ ] Vertragsvorlage mit @react-pdf/renderer
+  - [ ] Automatisch befüllen (Schüler, Betrieb, Zeitraum)
+  - [ ] Download als PDF
+
+- [ ] **20. PDF: Zertifikat generieren**
+  - [ ] Zertifikatsvorlage
+  - [ ] Schullogo einbinden
+  - [ ] Automatisch aus Praktikumsdaten generieren
+
+### Phase 4: Kommunikation & Abschluss
+> Bewertung und Benachrichtigungen
+
+- [ ] **21. Bewertungsbogen**
+  - [ ] Betrieb füllt Bewertung aus (Likert-Skala)
+  - [ ] Freitext-Felder
+  - [ ] Bewertung für Lehrkraft sichtbar
+
+- [ ] **22. Push-Benachrichtigungen**
+  - [ ] Web Push API Setup
+  - [ ] Deadline-Erinnerungen
+  - [ ] Krankmeldung-Benachrichtigung
+
+### Phase 5: Test & Polish
+> Qualitätssicherung
+
+- [ ] **23. End-to-End Tests**
+  - [ ] Kompletter Workflow durchspielen
+  - [ ] Alle Rollen testen
+
+- [ ] **24. Feedback & Verbesserungen**
+  - [ ] Testnutzer-Feedback einarbeiten
+  - [ ] UI/UX-Verbesserungen
+  - [ ] Performance-Optimierung
+
+---
+
+## ✅ Abgeschlossene Schritte
 
 ### 1. Projekt initialisiert
 - [x] Next.js 16 mit App Router
@@ -16,82 +121,88 @@
 
 ### 2. Design System (Tailwind v4)
 - [x] Custom Theme mit @theme in globals.css
-- [x] Warme Farbpalette (Teal + Terrakotta)
-- [x] Light/Dark Mode Support vorbereitet
-- [x] Design Tokens in TypeScript-Dateien (für Referenz)
+- [x] Dunkle Farbpalette mit Violett als Akzent
+- [x] Design Tokens in TypeScript-Dateien
 - [x] Custom Fonts (Plus Jakarta Sans, Source Sans 3, JetBrains Mono)
 
 ### 3. Datenbank-Schema (Drizzle ORM)
-- [x] Alle Tabellen aus ARCHITEKTUR.md implementiert:
-  - `schools` (Mandanten)
-  - `users` + `sessions`
-  - `students` + `studentTeachers`
-  - `companies` + `companyContacts` + `companyReviews`
-  - `internships` + `internshipBlocks` + `timeEntries` + `sickLeaves` + `reports`
-  - `milestones`
-  - `assessments`
-  - `documents`
-  - `notifications` + `pushSubscriptions`
-  - `auditLogs`
+- [x] Alle Tabellen implementiert (schools, users, students, companies, internships, etc.)
 - [x] Drizzle Config erstellt
+- [x] Seed-Script mit umfangreichen Testdaten
 
 ### 4. Better Auth Setup
-- [x] Better Auth installiert (Lucia Auth entfernt - war deprecated)
-- [x] Auth-Konfiguration in `src/lib/auth/index.ts`
-- [x] Client-Setup in `src/lib/auth/client.ts`
-- [x] Username-Plugin für Login ohne E-Mail
-- [x] API-Route unter `/api/auth/[...all]`
-- [x] Drizzle-Schema erweitert (accounts, verifications Tabellen)
-- [x] Helper für Platzhalter-E-Mails in `src/lib/auth/helpers.ts`
+- [x] Auth-Konfiguration mit Username-Plugin
+- [x] Login ohne E-Mail-Pflicht
+- [x] Session-Management
+- [x] Rollenbasierte Weiterleitung
 
 ### 5. Basis-UI-Komponenten
-- [x] Button (mit Varianten: default, accent, secondary, outline, ghost, destructive)
-- [x] Card (mit Header, Title, Description, Content, Footer)
-- [x] Input (mit Error-State)
-- [x] Label (mit required Marker)
-- [x] StatusBadge (Ampel-System: success, warning, error, info, neutral)
-
----
-
-### 6. Layout & Navigation
+- [x] Button, Card, Input, Label, StatusBadge
 - [x] Dashboard-Shell mit Sidebar
-- [x] Mobile Navigation (Bottom-Tab-Bar)
-- [x] Theme Toggle (Dark Mode)
-- [x] User-Menü mit Dropdown
+- [x] Mobile Navigation
+
+### 6. Dashboards (mit Mock-Daten)
+- [x] Schüler-Dashboard (`/schueler`)
+- [x] Betrieb-Dashboard (`/betrieb`)
+- [x] Lehrer-Dashboard (`/lehrer`)
+- [x] Admin-Dashboard (`/admin`) mit Schulen/Benutzer-Verwaltung
+
+### 7. Authentifizierung
+- [x] Login-Seite
+- [x] Protected Routes
+- [x] Rollenbasierte Weiterleitung nach Login
 
 ---
 
-### 7. Login-Flow
-- [x] Login-Seite (`/login`) mit Username/Passwort
-- [x] Auth-Actions (signIn, signOut via Better Auth)
-- [x] Protected Routes Middleware (redirect zu /login)
-- [x] Redirect nach Login (mit ?redirect Parameter)
+## 🚀 Nächster Schritt
+
+**Phase 1, Schritt 11: Dashboards mit echten Daten**
+
+Aufgaben:
+1. Server Components für Datenbankabfragen erstellen
+2. Schüler-Dashboard: Eigenes Praktikum + Fortschritt laden
+3. Betrieb-Dashboard: Zugewiesene Praktikanten laden
+4. Lehrer-Dashboard: Betreute Schüler mit Status laden
+
+Dateien die geändert/erstellt werden:
+- `src/app/(dashboard)/schueler/page.tsx` → Server Component
+- `src/app/(dashboard)/betrieb/page.tsx` → Server Component
+- `src/app/(dashboard)/lehrer/page.tsx` → Server Component
+- `src/lib/db/queries/` → Datenbank-Queries
 
 ---
 
-## Nächste Schritte
+## 🧪 Test-Accounts
 
-### 8. Erste Feature-Implementierung
-- [ ] Schule anlegen (Admin)
-- [ ] Benutzer anlegen (Admin)
-- [ ] Dashboard-Startseite pro Rolle
+**Passwort für alle: `test1234`**
+
+| Username | Rolle | Beschreibung |
+|----------|-------|--------------|
+| admin | Super Admin | Plattform-Verwaltung |
+| schulze | School Admin | Schul-Verwaltung |
+| mustermann | Teacher | Klasse 10a |
+| weber | Teacher | Klasse 10b |
+| schmidt.anna | Student | Praktikum läuft (5/15 Tage) |
+| mueller.ben | Student | Praktikum läuft (8/15 Tage) |
+| braun.felix | Student | Praktikum läuft (12/15 Tage) |
+| hoffmann.greta | Student | Praktikum abgeschlossen |
+| bauer.emma | Student | Sucht Praktikum |
+| mllergmbh | Betrieb | Müller GmbH |
+| schmidtpartner | Betrieb | Schmidt & Partner |
 
 ---
 
-## Lokale Entwicklung starten
+## 💻 Lokale Entwicklung
 
 ```bash
 # PostgreSQL starten
 docker-compose up -d
 
-# .env.local erstellen (Kopie von .env.example)
-cp .env.example .env.local
+# Schema in Datenbank pushen
+npm run db:push
 
-# Datenbank-Migrationen erstellen
-npm run db:generate
-
-# Migrationen ausführen
-npm run db:migrate
+# Test-Daten seeden
+npm run db:seed
 
 # Dev-Server starten
 npm run dev
@@ -99,88 +210,35 @@ npm run dev
 
 ---
 
-## Zu testen
-
-1. **Build funktioniert:**
-   ```bash
-   npm run build
-   ```
-
-2. **Dev-Server läuft:**
-   ```bash
-   npm run dev
-   ```
-   → Öffne http://localhost:3000
-
-3. **UI-Komponenten:**
-   - Startseite zeigt Design System Demo
-   - Button-Varianten prüfen
-   - Status-Badges (Ampel-Farben)
-   - Formular-Elemente
-
----
-
-## Projektstruktur
+## 📁 Projektstruktur
 
 ```
 src/
 ├── app/
-│   ├── layout.tsx           # Root Layout mit Fonts + ThemeProvider
-│   ├── page.tsx             # Design System Demo
-│   ├── (auth)/              # Auth-Bereich (öffentlich)
-│   │   ├── layout.tsx
-│   │   └── login/
-│   │       └── page.tsx     # Login-Seite
-│   └── (dashboard)/         # Dashboard-Bereich (geschützt)
-│       ├── layout.tsx       # Dashboard-Layout mit Shell + Session
-│       └── lehrer/
-│           └── page.tsx     # Lehrkraft-Dashboard Demo
-├── middleware.ts            # Protected Routes → /login Redirect
+│   ├── (auth)/login/          # Login-Seite
+│   ├── (dashboard)/
+│   │   ├── admin/             # Admin-Bereich
+│   │   ├── lehrer/            # Lehrkraft-Dashboard
+│   │   ├── schueler/          # Schüler-Dashboard
+│   │   └── betrieb/           # Betrieb-Dashboard
+│   └── api/                   # API-Routen
 ├── components/
-│   ├── ui/
-│   │   ├── button.tsx       # Button mit Varianten
-│   │   ├── card.tsx         # Card-Komponenten
-│   │   ├── input.tsx        # Input mit Error
-│   │   ├── label.tsx        # Label mit required
-│   │   ├── status-badge.tsx # Ampel-System
-│   │   └── index.ts         # Exports
-│   └── layout/
-│       ├── dashboard-shell.tsx # Dashboard-Shell
-│       ├── sidebar.tsx         # Desktop-Sidebar
-│       ├── mobile-nav.tsx      # Mobile Bottom Navigation
-│       ├── user-menu.tsx       # User-Menü Dropdown
-│       └── index.ts            # Exports
+│   ├── ui/                    # Basis-Komponenten
+│   └── layout/                # Layout-Komponenten
 ├── lib/
-│   ├── auth/
-│   │   ├── index.ts         # Better Auth Config
-│   │   ├── client.ts        # Client-Side Auth
-│   │   └── helpers.ts       # Username/E-Mail Helpers
-│   ├── db/
-│   │   ├── index.ts         # Drizzle Client
-│   │   └── schema/          # Alle Tabellen
+│   ├── auth/                  # Better Auth
+│   ├── db/                    # Drizzle ORM
+│   │   ├── schema/            # Tabellen-Definitionen
+│   │   └── seed.ts            # Test-Daten
 │   └── utils/
-│       └── cn.ts            # clsx + twMerge
 └── styles/
-    ├── globals.css          # Tailwind v4 @theme
-    ├── tokens/              # TypeScript Token-Definitionen
-    └── fonts/               # Font-Setup
+    └── globals.css            # Tailwind v4 Theme
 ```
 
 ---
 
-## Bekannte Issues
+## ⚠️ Bekannte Issues
 
-- Dark Mode Toggle noch nicht implementiert (CSS-Variablen sind vorbereitet)
-- Passkey-Plugin (Face ID/Touch ID) noch nicht aktiviert (kann später hinzugefügt werden)
-
----
-
-## Architektur-Entscheidungen
-
-| Entscheidung | Begründung |
-|--------------|------------|
-| Tailwind v4 | Neueste Version, @theme Syntax in globals.css, keine tailwind.config.ts nötig |
-| Drizzle ORM | Type-safe, performant, nah an SQL |
-| Better Auth | Aktiv gepflegt, Username-Login, Passkeys (Face ID) als Plugin |
-| Next.js 16 | App Router, Server Actions, beste DX |
-| class-variance-authority | Typsichere Komponenten-Varianten |
+- Passkey-Plugin (Face ID) noch nicht aktiviert
+- Next.js 16 Warnung: "middleware" → "proxy"
+- Docker PostgreSQL auf Port 5433 (5432 oft belegt)

@@ -1,8 +1,17 @@
 {
   "/(auth)/login/page": "app/(auth)/login/page.js",
+  "/(dashboard)/admin/benutzer/neu/page": "app/(dashboard)/admin/benutzer/neu/page.js",
+  "/(dashboard)/admin/benutzer/page": "app/(dashboard)/admin/benutzer/page.js",
+  "/(dashboard)/admin/page": "app/(dashboard)/admin/page.js",
+  "/(dashboard)/admin/schulen/neu/page": "app/(dashboard)/admin/schulen/neu/page.js",
+  "/(dashboard)/admin/schulen/page": "app/(dashboard)/admin/schulen/page.js",
+  "/(dashboard)/betrieb/page": "app/(dashboard)/betrieb/page.js",
   "/(dashboard)/lehrer/page": "app/(dashboard)/lehrer/page.js",
+  "/(dashboard)/schueler/page": "app/(dashboard)/schueler/page.js",
   "/_global-error/page": "app/_global-error/page.js",
   "/_not-found/page": "app/_not-found/page.js",
+  "/api/admin/benutzer/route": "app/api/admin/benutzer/route.js",
+  "/api/admin/schulen/route": "app/api/admin/schulen/route.js",
   "/api/auth/[...all]/route": "app/api/auth/[...all]/route.js",
   "/page": "app/page.js"
 }

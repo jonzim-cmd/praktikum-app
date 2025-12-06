@@ -42,9 +42,10 @@ export const users = pgTable('users', {
 
 /**
  * Sessions table - compatible with Better Auth
+ * Note: Better Auth generates string IDs, not UUIDs
  */
 export const sessions = pgTable('sessions', {
-  id: uuid('id').primaryKey().defaultRandom(),
+  id: text('id').primaryKey(),
   userId: uuid('user_id').notNull().references(() => users.id, { onDelete: 'cascade' }),
   token: varchar('token', { length: 255 }).notNull().unique(),
   expiresAt: timestamp('expires_at').notNull(),

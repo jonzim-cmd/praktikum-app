@@ -49,6 +49,54 @@
       "namedRegex": "^/_not\\-found(?:/)?$"
     },
     {
+      "page": "/admin",
+      "regex": "^/admin(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin(?:/)?$"
+    },
+    {
+      "page": "/admin/benutzer",
+      "regex": "^/admin/benutzer(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/benutzer(?:/)?$"
+    },
+    {
+      "page": "/admin/benutzer/neu",
+      "regex": "^/admin/benutzer/neu(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/benutzer/neu(?:/)?$"
+    },
+    {
+      "page": "/admin/schulen",
+      "regex": "^/admin/schulen(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/schulen(?:/)?$"
+    },
+    {
+      "page": "/admin/schulen/neu",
+      "regex": "^/admin/schulen/neu(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/schulen/neu(?:/)?$"
+    },
+    {
+      "page": "/api/admin/benutzer",
+      "regex": "^/api/admin/benutzer(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/admin/benutzer(?:/)?$"
+    },
+    {
+      "page": "/api/admin/schulen",
+      "regex": "^/api/admin/schulen(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/admin/schulen(?:/)?$"
+    },
+    {
+      "page": "/betrieb",
+      "regex": "^/betrieb(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/betrieb(?:/)?$"
+    },
+    {
       "page": "/lehrer",
       "regex": "^/lehrer(?:/)?$",
       "routeKeys": {},
@@ -59,6 +107,12 @@
       "regex": "^/login(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/login(?:/)?$"
+    },
+    {
+      "page": "/schueler",
+      "regex": "^/schueler(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/schueler(?:/)?$"
     }
   ],
   "dataRoutes": [],

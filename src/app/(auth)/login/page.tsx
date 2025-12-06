@@ -3,16 +3,31 @@
 import { Suspense, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
-import { signIn } from '@/lib/auth/client';
+import { signIn, getSession } from '@/lib/auth/client';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
+function getDefaultRedirectForRole(role: string): string {
+  switch (role) {
+    case 'super_admin':
+    case 'school_admin':
+      return '/admin';
+    case 'teacher':
+      return '/lehrer';
+    case 'company_user':
+      return '/betrieb';
+    case 'student':
+    default:
+      return '/schueler';
+  }
+}
+
 function LoginForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const redirectTo = searchParams.get('redirect') || '/lehrer';
+  const explicitRedirect = searchParams.get('redirect');
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -34,6 +49,14 @@ function LoginForm() {
         setError(result.error.message || 'Anmeldung fehlgeschlagen');
         setIsLoading(false);
         return;
+      }
+
+      // Determine redirect based on user role
+      let redirectTo = explicitRedirect;
+      if (!redirectTo) {
+        const session = await getSession();
+        const userRole = (session?.data?.user as { role?: string })?.role || 'student';
+        redirectTo = getDefaultRedirectForRole(userRole);
       }
 
       router.push(redirectTo);
