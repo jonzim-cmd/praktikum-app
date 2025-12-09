@@ -256,10 +256,83 @@
 
 ---
 
-## Reaktiver Flow 1: Besuchstermin vereinbaren
+## Reaktiver Flow 1: Verfügbarkeit für Besuchstermin angeben
+
+> **Neuer Ansatz:** Betrieb gibt Verfügbarkeit in 2h-Slots an, Lehrkraft sieht Übersicht aller Betriebe.
 
 ```
-◆ TRIGGER: Lehrkraft schlägt Termine vor
+◆ TRIGGER: Praktikum startet / Lehrkraft fordert Verfügbarkeit an
+                    │
+                    ▼
+        ┌─────────────────────────────────────────────┐
+        │  ✉️ E-MAIL AN BETRIEB                        │
+        │                                             │
+        │  Betreff: "Betriebsbesuch planen"          │
+        │                                             │
+        │  Frau Schmidt möchte Sie während des       │
+        │  Praktikums besuchen.                      │
+        │                                             │
+        │  Bitte geben Sie Ihre Verfügbarkeit an.   │
+        │                                             │
+        │  Dauer: ca. 2 Minuten                      │
+        │                                             │
+        │  [Verfügbarkeit angeben]                    │
+        └────────────────────┬────────────────────────┘
+                             │
+                             ▼
+        ┌─────────────────────────────────────────────┐
+        │  VERFÜGBARKEIT FÜR BETRIEBSBESUCH           │
+        │  Praktikumszeitraum: 03.-14.02.2025         │
+        │                                             │
+        │  Bitte markieren Sie, wann ein Besuch      │
+        │  möglich wäre:                             │
+        │                                             │
+        │           │  Mo    Di    Mi    Do    Fr    │
+        │           │  03.   04.   05.   06.   07.   │
+        │  ─────────┼────────────────────────────────│
+        │  08-10    │  [ ]   [✓]   [✓]   [ ]   [ ]   │
+        │  10-12    │  [ ]   [✓]   [✓]   [✓]   [ ]   │
+        │  12-14    │  [ ]   [ ]   [ ]   [ ]   [ ]   │
+        │  14-16    │  [✓]   [✓]   [✓]   [✓]   [ ]   │
+        │  16-18    │  [✓]   [✓]   [ ]   [✓]   [ ]   │
+        │                                             │
+        │  Schnellauswahl:                           │
+        │  [Alle Vormittage] [Alle Nachmittage]      │
+        │  [Ganzer Tag Mo-Do]                         │
+        │                                             │
+        │  Zusätzliche Hinweise (optional):          │
+        │  ┌───────────────────────────────────────┐  │
+        │  │ z.B. "Freitags nie, da Außendienst"  │  │
+        │  └───────────────────────────────────────┘  │
+        │                                             │
+        │  [Verfügbarkeit speichern]                  │
+        └────────────────────┬────────────────────────┘
+                             │
+                             ▼
+        ┌─────────────────────────────────────────────┐
+        │  ✅ VERFÜGBARKEIT GESPEICHERT               │
+        │                                             │
+        │  Die Lehrkraft wird einen passenden        │
+        │  Termin vorschlagen.                       │
+        │                                             │
+        │  Sie werden benachrichtigt.                │
+        └─────────────────────────────────────────────┘
+
+◆ KEINE REAKTION:
+        │
+        ├── Nach 3 Tagen: Erinnerung an Betrieb
+        │
+        └── Nach 5 Tagen: Info an Lehrkraft
+                          (kann trotzdem Termine vorschlagen
+                           oder telefonisch klären)
+```
+
+---
+
+## Reaktiver Flow 1b: Terminvorschlag von Lehrkraft
+
+```
+◆ TRIGGER: Lehrkraft schlägt konkreten Termin vor
                     │
                     ▼
         ┌─────────────────────────────────────────────┐
@@ -267,56 +340,31 @@
         │                                             │
         │  Betreff: "Terminvorschlag Betriebsbesuch" │
         │                                             │
-        │  Frau Schmidt möchte Sie besuchen.         │
+        │  Frau Schmidt schlägt folgenden Termin    │
+        │  für den Betriebsbesuch vor:              │
         │                                             │
-        │  Dauer: ca. 2 Minuten                      │
+        │  📅 Dienstag, 11.02.2025                   │
+        │  🕐 14:00 - 16:00 Uhr                      │
         │                                             │
-        │  [Termin auswählen]                         │
+        │  [Akzeptieren]    [Ablehnen]               │
         └────────────────────┬────────────────────────┘
                              │
-                             ▼
-        ┌─────────────────────────────────────────────┐
-        │  TERMINAUSWAHL                              │
-        │                                             │
-        │  Frau Schmidt möchte Sie während des       │
-        │  Praktikums besuchen.                      │
-        │                                             │
-        │  Bitte wählen Sie einen Termin:            │
-        │                                             │
-        │  ○ Mo, 10.02. 10:00 - 11:00                │
-        │  ○ Di, 11.02. 14:00 - 15:00                │
-        │  ○ Mi, 12.02. 09:00 - 10:00                │
-        │                                             │
-        │  ○ Keiner passt - Alternative vorschlagen  │
-        │                                             │
-        │  [Auswählen]                                │
-        └─────────────────────┬───────────────────────┘
-                              │
-             ┌────────────────┴────────────────┐
-             │                                 │
-             ▼                                 ▼
-      ┌──────────────┐                 ┌──────────────────────────┐
-      │ TERMIN       │                 │ ALTERNATIVE              │
-      │ GEWÄHLT      │                 │ VORSCHLAGEN              │
-      │              │                 │                          │
-      │ ✅ Termin    │                 │ Wann passt es Ihnen?     │
-      │ bestätigt:   │                 │                          │
-      │ Di, 11.02.   │                 │ [Kalender / Freitext]    │
-      │ 14:00        │                 │                          │
-      │              │                 │ Nachricht (optional):    │
-      │ Lehrkraft    │                 │ [__________________]     │
-      │ wird         │                 │                          │
-      │ informiert   │                 │ [Vorschlag senden]       │
-      └──────────────┘                 └────────────┬─────────────┘
-                                                    │
-                                                    ▼
-                                       ┌──────────────────────────┐
-                                       │ Lehrkraft erhält         │
-                                       │ Ihren Vorschlag          │
-                                       │                          │
-                                       │ Sie werden informiert    │
-                                       │ sobald bestätigt         │
-                                       └──────────────────────────┘
+             ┌───────────────┴───────────────┐
+             │                               │
+             ▼                               ▼
+      ┌──────────────┐               ┌──────────────────────────┐
+      │ AKZEPTIEREN  │               │ ABLEHNEN                 │
+      │              │               │                          │
+      │ ✅ Termin    │               │ Grund (optional):        │
+      │ bestätigt!   │               │ [____________________]   │
+      │              │               │                          │
+      │ Di, 11.02.   │               │ [Ablehnen]               │
+      │ 14:00-16:00  │               │                          │
+      │              │               │ → Lehrkraft wird         │
+      │ Eingetragen  │               │   informiert und         │
+      │ in Ihrem     │               │   schlägt neuen          │
+      │ Kalender     │               │   Termin vor             │
+      └──────────────┘               └──────────────────────────┘
 
 ◆ KEINE REAKTION:
         │
@@ -407,7 +455,7 @@
 ## Reaktiver Flow 4: Anwesenheit bestätigen
 
 ```
-◆ TRIGGER: Letzter Praktikumstag der Woche (vormittags)
+◆ TRIGGER: Letzter Praktikumstag der Woche (11-12 Uhr)
                     │
                     ▼
         ┌─────────────────────────────────────────────┐
@@ -470,14 +518,16 @@
 
 ◆ KEINE REAKTION:
         │
-        ├── Nach 3 Tagen: Zweite Erinnerung
+        ├── Nach 3 Tagen: Erste Erinnerung
         │
-        └── Nach 7 Tagen: Stillschweigend bestätigt
-                          (Schüler-Meldung gilt)
+        ├── Nach 5 Tagen: Zweite Erinnerung
+        │
+        └── Nach 7 Tagen: Lehrkraft wird informiert
+                          (KEINE stillschweigende Bestätigung)
 
-                          Für Lehrkraft sichtbar:
-                          "⚠️ Automatisch bestätigt
-                           (keine Reaktion vom Betrieb)"
+                          Lehrkraft erhält:
+                          "⚠️ Betrieb hat Anwesenheit nicht bestätigt.
+                           Bitte telefonisch oder per Mail klären."
 ```
 
 ---
@@ -581,6 +631,16 @@
                              │
                              ▼
         ┌─────────────────────────────────────────────┐
+        │  ⚠️ BEURTEILUNG ABSENDEN?                    │
+        │                                             │
+        │  Nach dem Absenden können Sie die          │
+        │  Beurteilung nicht mehr ändern.            │
+        │                                             │
+        │  [Abbrechen]     [Endgültig absenden]       │
+        └────────────────────┬────────────────────────┘
+                             │
+                             ▼
+        ┌─────────────────────────────────────────────┐
         │  ✅ BEURTEILUNG ABGESCHLOSSEN               │
         │                                             │
         │  Vielen Dank für Ihre Beurteilung!         │
@@ -615,6 +675,62 @@
 
                     Absoluter Fallback:
                     Lehrkraft benotet "ohne Betriebsfeedback"
+```
+
+---
+
+## Reaktiver Flow 5b: Beurteilung-Korrektur anfragen
+
+```
+        ┌─────────────────────────────────────────────┐
+        │  IM DASHBOARD (nach Absenden):              │
+        │                                             │
+        │  📋 BEURTEILUNGEN                           │
+        │                                             │
+        │  Max M. – Beurteilung abgesendet ✓         │
+        │  am 12.02.2025                              │
+        │                                             │
+        │  [Korrektur anfragen]                       │
+        └────────────────────┬────────────────────────┘
+                             │
+                             ▼
+        ┌─────────────────────────────────────────────┐
+        │  KORREKTURANFRAGE SENDEN?                   │
+        │                                             │
+        │  Die Lehrkraft wird benachrichtigt und     │
+        │  kann die Beurteilung zur Bearbeitung      │
+        │  freigeben.                                │
+        │                                             │
+        │  [Abbrechen]     [Anfrage senden]           │
+        └────────────────────┬────────────────────────┘
+                             │
+                             ▼
+        ┌─────────────────────────────────────────────┐
+        │  ✅ ANFRAGE GESENDET                        │
+        │                                             │
+        │  Die Lehrkraft wurde benachrichtigt.       │
+        │  Sie erhalten eine Nachricht, sobald die   │
+        │  Beurteilung zur Korrektur freigegeben     │
+        │  wurde.                                    │
+        └─────────────────────────────────────────────┘
+
+◆ LEHRKRAFT GIBT FREI:
+                    │
+                    ▼
+        ┌─────────────────────────────────────────────┐
+        │  ✉️ E-MAIL AN BETRIEB                        │
+        │                                             │
+        │  Betreff: "Beurteilung zur Korrektur"      │
+        │                                             │
+        │  Ihre Korrekturanfrage wurde genehmigt.    │
+        │  Sie können die Beurteilung für Max M.     │
+        │  jetzt bearbeiten.                         │
+        │                                             │
+        │  [Beurteilung bearbeiten]                   │
+        └────────────────────┬────────────────────────┘
+                             │
+                             ▼
+              (Betrieb bearbeitet und sendet erneut ab)
 ```
 
 ---
@@ -727,6 +843,7 @@
         │  │                                       │  │
         │  │  Status: ✅ Gelistet                  │  │
         │  │  [Aus Datenbank austragen]           │  │
+        │  │  (siehe Flow: Austragen)             │  │
         │  └───────────────────────────────────────┘  │
         │                                             │
         │  ┌───────────────────────────────────────┐  │
@@ -877,17 +994,59 @@
 
 ---
 
+## Flow: Aus Praktikumsdatenbank austragen
+
+> Verfügbar in jeder E-Mail (Footer) und in den Einstellungen
+
+```
+[Link/Button: Aus Datenbank austragen]
+                    │
+                    ▼
+        ┌─────────────────────────────────────────────┐
+        │  AUS PRAKTIKUMSDATENBANK AUSTRAGEN?         │
+        │                                             │
+        │  Ihr Betrieb wird nicht mehr als           │
+        │  möglicher Praktikumsplatz für Schüler     │
+        │  angezeigt.                                │
+        │                                             │
+        │  ℹ️ Sie können sich jederzeit wieder        │
+        │     eintragen.                             │
+        │                                             │
+        │  [Abbrechen]          [Austragen]           │
+        └────────────────────┬────────────────────────┘
+                             │
+                             ▼
+        ┌─────────────────────────────────────────────┐
+        │  ✅ SIE WURDEN AUSGETRAGEN                  │
+        │                                             │
+        │  Ihr Betrieb ist nicht mehr in der         │
+        │  Praktikumsdatenbank gelistet.             │
+        │                                             │
+        │  Bei Fragen: [Kontakt Lehrkraft]           │
+        └─────────────────────────────────────────────┘
+```
+
+**Hinweis:**
+- Sofortige Löschung aus der Datenbank
+- Betriebsstammdaten bleiben (für laufende/vergangene Praktika)
+- DSGVO-konform: Widerruf der Einwilligung
+
+---
+
 ## Synchronisation mit anderen Flows
 
 ### Was Betrieb auslöst → Andere sehen
 
 | Betrieb-Aktion | Schüler sieht | Lehrkraft sieht |
 |----------------|---------------|-----------------|
+| Verfügbarkeit angegeben | - | In Terminplanungs-Übersicht |
 | Termin bestätigt | - | Termin in Kalender |
 | Termin abgesagt | - | Sofort-Benachrichtigung |
 | Anwesenheit bestätigt | Tage als "✅ bestätigt" | Status in Übersicht |
 | Anwesenheit korrigiert | Korrektur + evtl. Problem | Warnung + Details |
 | Beurteilung abgegeben | - | Beurteilung in Akte sichtbar |
+| Korrektur angefragt | - | Benachrichtigung + Freigabe-Option |
+| Aus Datenbank ausgetragen | - | Status-Update in Betrieb-Übersicht |
 
 ### Was andere auslösen → Betrieb sieht
 
@@ -895,8 +1054,10 @@
 |---------------|---------------|
 | Vertrag bestätigt (Lehrkraft) | Account-Mail |
 | Krankmeldung (Schüler) | Info-Mail (keine Aktion nötig) |
-| Terminvorschlag (Lehrkraft) | Mail mit Terminauswahl |
+| Verfügbarkeit angefordert (Lehrkraft) | Mail mit Kalender-Link |
+| Terminvorschlag (Lehrkraft) | Mail mit Akzeptieren/Ablehnen |
 | Beurteilung freischalten (Lehrkraft/System) | Mail mit Aufforderung |
+| Korrektur freigegeben (Lehrkraft) | Mail mit Bearbeiten-Link |
 
 ---
 
@@ -916,3 +1077,12 @@ Alle Entscheidungen sind dokumentiert in: `docs/ENTSCHEIDUNGEN-BETRIEB.md`
 | 2024-12-08 | NEU: Einstellungen "Anmelde-Methode" mit Wechsel-Option |
 | 2024-12-08 | NEU: Link-Anmeldung deaktivieren (nur Passwort) |
 | 2024-12-08 | NEU: Login-Screen mit beiden Optionen |
+| 2024-12-09 | ÜBERARBEITET: Besuchstermin mit Kalender-basierter Verfügbarkeit (2h-Slots) |
+| 2024-12-09 | NEU: Flow 1b - Terminvorschlag von Lehrkraft (Akzeptieren/Ablehnen) |
+| 2024-12-09 | NEU: Beurteilung mit Bestätigungs-Dialog vor Absenden |
+| 2024-12-09 | NEU: Flow 5b - Beurteilung-Korrektur anfragen |
+| 2024-12-09 | NEU: Flow Austragen aus Praktikumsdatenbank |
+| 2024-12-09 | ERWEITERT: Synchronisation mit anderen Flows |
+| 2024-12-09 | GEÄNDERT: Stillschweigende Bestätigung gestrichen → Lehrkraft wird informiert |
+| 2024-12-09 | GEÄNDERT: Anwesenheits-E-Mail um 11-12 Uhr (nicht allgemein vormittags) |
+| 2024-12-09 | GEÄNDERT: Erinnerungsfristen 3→5→7 Tage (einheitlich) |

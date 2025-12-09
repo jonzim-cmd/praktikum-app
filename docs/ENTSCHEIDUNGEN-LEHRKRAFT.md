@@ -1,7 +1,7 @@
 # Entscheidungen: Lehrkraft-Flow
 
 > Dokumentation aller Entscheidungen, die während der Erarbeitung des Lehrkraft-Flows getroffen wurden.
-> Stand: 2024-12-08
+> Stand: 2024-12-09
 
 ---
 
@@ -81,6 +81,23 @@ Separate Bereiche für:
 4. ✅ Bestätigt (Lehrkraft hat fertigen Vertrag hochgeladen)
 5. ❌ Abgelehnt (mit Grund)
 
+### Status "Bei Schulleitung" – Details
+
+- **Nur ein Vermerk:** Kein echter Workflow-Schritt
+- **Erinnerung nach X Tagen:** "Vertrag seit X Tagen bei Schulleitung – bitte Status aktualisieren"
+- **Grund:** Schulleitung ist außerhalb des Systems, daher keine automatische Eskalation
+- Lehrkraft muss manuell bei Schulleitung nachfragen wenn es dauert
+
+### Betrieb-Account: Wann erstellen? (konfigurierbar)
+
+| Option | Beschreibung | Wann sinnvoll |
+|--------|--------------|---------------|
+| **Bei "Bei Schulleitung"** (Default) | Account wird erstellt sobald LK den Vertrag weiterreicht | Schulleitung-Unterschrift ist nur Formalie |
+| **Erst bei "Fertig"** | Account wird erst erstellt wenn Vertrag komplett | Schulleitung muss rechtlich erst genehmigen |
+
+- **Im Admin konfigurierbar** pro Schule
+- Default: Bei "Bei Schulleitung" (beschleunigt den Prozess)
+
 ### Erinnerungen an Lehrkraft
 - Ja! Nicht nur Schüler bekommen Erinnerungen
 - "Sie haben 3 Verträge, die seit 10 Tagen nicht bearbeitet wurden"
@@ -138,16 +155,99 @@ LETZTE WOCHE: ✅ bestätigt
 - Notizen (optional)
 - Betrieb muss NICHT bestätigen
 
-### Terminplanung
-- **Simpel:** Lehrkraft schlägt 1-3 Zeitfenster vor
-- Betrieb wählt eines oder schlägt Alternative vor
-- Bei Bestätigung: Termin steht
-- **Kartenansicht:** Alle Betriebe auf Karte (hilft bei manueller Planung)
-- **Keine komplexe Optimierung** in V1
+### Terminplanung: Kalender-basiert mit Optimierung
+
+**Neuer Ansatz:** Betriebe geben Verfügbarkeit in 2h-Slots an, Lehrkraft sieht kombinierte Übersicht.
+
+**Ablauf:**
+1. Betrieb gibt Verfügbarkeit an (2h-Slots im Kalender)
+2. Lehrkraft sieht kombinierte Übersicht aller Betriebe
+3. System schlägt optimale Verteilung vor (Greedy-Algorithmus)
+4. Lehrkraft wählt Slot und sendet Vorschlag
+5. Betrieb bestätigt oder lehnt ab
+
+**Lehrkraft-Ansicht: Kombinierte Übersicht**
+
+```
+BETRIEBSBESUCHE PLANEN
+8 Besuche offen │ Praktikumszeitraum: 03.-14.02.2025
+
+KALENDERANSICHT (alle Betriebe überlagert):
+
+         │  Mo 03.        Di 04.        Mi 05.   ...
+─────────┼────────────────────────────────────────────
+08-10    │  ░░ (2)        ██ (5)        ██ (4)
+10-12    │  ██ (6)        ██ (7)        ██ (6)
+12-14    │  ░░ (1)        ░░ (2)        ░░ (1)
+14-16    │  ██ (5)        ██ (6)        ██ (5)
+16-18    │  ░░ (3)        ░░ (4)        ░░ (2)
+
+Legende: ██ = viele verfügbar (4+)  ░░ = wenige (1-3)  □ = keiner
+```
+
+**Klick auf Slot zeigt Details:**
+- Welche Betriebe sind in diesem Slot verfügbar?
+- Lehrkraft kann direkt Termin vorschlagen
+
+**System-Vorschläge (Greedy-Algorithmus V1):**
+
+```
+VORGESCHLAGENE BESUCHSPLANUNG
+─────────────────────────────────────────
+
+Automatisch optimiert (8/8 Besuche möglich):
+
+Mo 03., 10-12: Müller GmbH ✓
+Mo 03., 14-16: Schmidt AG ✓
+Di 04., 08-10: Weber & Co ✓
+...
+
+[Alle vorschlagen]  [Einzeln anpassen]
+
+⚠️ KONFLIKT: Für "Café Zentral" gibt es
+   keine verfügbaren Slots.
+   [Manuell lösen] [Telefonisch klären]
+```
+
+**Algorithmus (V1 - Greedy):**
+1. Sortiere Betriebe nach Anzahl verfügbarer Slots (aufsteigend)
+2. "Schwierige" Betriebe (wenige Slots) werden zuerst geplant
+3. Für jeden Betrieb: Ersten freien Slot zuweisen
+4. Konflikte anzeigen, wenn kein Slot mehr frei
+
+**Roadmap:**
+- V1: Greedy-Algorithmus + manuelle Konfliktlösung
+- V1.5: Wenn Feedback zeigt "reicht nicht" → OR-Tools nachrüsten
+- V2: OR-Tools mit Fahrzeit-Optimierung (Maps API)
+
+### Fallback bei Nicht-Einigung
+
+Wenn Terminierung über App scheitert:
+- Lehrkraft klärt telefonisch
+- Trägt Ergebnis manuell ein
+- Das ist okay, nicht alles muss digital sein
 
 ### Übersicht
 - Liste: Welche Betriebe besucht / nicht besucht
 - Bestätigte Termine mit Datum/Uhrzeit
+- Verfügbarkeit der Betriebe (sofern angegeben)
+- Konflikte hervorgehoben
+
+### Terminvereinbarung VOR Praktikumsbeginn
+
+- **Sobald Vertrag bestätigt:** Terminvereinbarung kann starten
+- Beispiel: Zusage November, Praktikum Februar → Termin kann im Dezember vereinbart werden
+- **Kalender zeigt alle Praktikumszeiträume:** Nicht nur den aktuellen
+- Bei früher Vereinbarung: Bereits belegte Slots werden bei späteren Terminvereinbarungen berücksichtigt
+
+### Lehrkraft muss Termin absagen
+
+Wenn Lehrkraft einen bestätigten Termin absagen muss (Krankheit, Notfall):
+
+1. Lehrkraft klickt "Termin absagen" im Kalender
+2. Optional: Grund angeben
+3. Betrieb erhält sofort E-Mail + Push: "Lehrkraft muss den Termin am [Datum] leider absagen"
+4. Lehrkraft sieht Aufgabe: "Neuen Termin mit [Betrieb] vereinbaren"
 
 ---
 
@@ -165,6 +265,45 @@ LETZTE WOCHE: ✅ bestätigt
 3. Betriebsbeurteilung (Betrieb, nur lesen)
 4. Gesamteindruck (Lehrkraft)
 5. Note
+
+### Mehrere beurteilende Lehrkräfte
+
+**Konfigurierbar:** Verschiedene Lehrkräfte können verschiedene Teile beurteilen.
+
+| Rolle | Bewertet typischerweise |
+|-------|------------------------|
+| Betreuende Lehrkraft | Bewerbungsprozess, Praktikum (Besuch, Anwesenheit) |
+| Beurteilende Lehrkraft | Nachbereitungsaufgaben, Gesamteindruck, Gesamtnote |
+| Weitere Lehrkräfte | Je nach Schulkonfiguration |
+
+### Rollen-Zuweisung: Wer legt fest?
+
+**Ebenen:**
+
+| Ebene | Wer | Was |
+|-------|-----|-----|
+| **Schul-Default** | Admin | Legt Standard-Zuordnung für alle Lehrkräfte fest |
+| **Pro Lehrkraft** | Admin | Kann individuelle Abweichungen festlegen |
+| **Selbständerung** | Lehrkraft | Kann eigene Zuordnung anpassen |
+
+**Beispiel:**
+1. Admin legt fest: "Klassenlehrer = betreuend, Fachlehrer = beurteilend" (Default)
+2. Für Frau Müller legt Admin ab: "Macht beides" (individuelle Abweichung)
+3. Herr Schmidt ändert selbst: "Ich mache nur beurteilend" (Selbständerung)
+
+**Priorität:** Selbständerung > Pro Lehrkraft > Schul-Default
+
+**Sichtbarkeit:**
+- Jede Lehrkraft sieht alle Abschnitte (auch fremde, nur lesend)
+- Eigene Abschnitte sind bearbeitbar
+- Gesamtnote erst möglich wenn alle Abschnitte ausgefüllt
+
+### Bewertungs-Deadline
+
+- **Im Admin konfigurierbar:** Frist für Noteneingabe
+- Erinnerung X Tage vor Deadline: "Die Noteneingabe-Frist endet in X Tagen"
+- Nach Deadline: Keine automatische Sperre (Kulanzzeit möglich)
+- Admin kann Deadline verlängern
 
 ### Batch-Modus
 - "Bewertungs-Modus" für effizientes Arbeiten
@@ -296,6 +435,47 @@ LETZTE WOCHE: ✅ bestätigt
 
 ---
 
+## Beurteilung-Korrektur durch Betrieb freigeben
+
+### Kontext
+Betrieb hat Beurteilung abgesendet, möchte aber nachträglich korrigieren.
+
+### Ablauf
+
+1. **Betrieb fragt Korrektur an** (im Dashboard)
+2. **Lehrkraft erhält Benachrichtigung:**
+   - Push + E-Mail: "Müller GmbH bittet um Korrektur der Beurteilung für Max M."
+   - Direktlink zur Freigabe
+
+3. **Lehrkraft entscheidet:**
+   - **[Freigeben]** → Betrieb erhält Mail mit Link zur Bearbeitung
+   - **[Ablehnen]** → Betrieb erhält Info "Korrektur nicht möglich"
+
+### Anzeige in Bewertungs-Akte
+
+```
+┌─────────────────────────────────────────┐
+│ Betriebsbeurteilung: Müller GmbH        │
+│ Status: Abgesendet am 12.02.2025        │
+│                                         │
+│ ⚠️ Korrekturanfrage vom Betrieb          │
+│                                         │
+│ [Ablehnen]           [Zur Korrektur     │
+│                       freigeben]        │
+└─────────────────────────────────────────┘
+```
+
+### Nach Freigabe
+- Beurteilung wechselt in Status "Zur Korrektur"
+- Betrieb kann erneut bearbeiten und absenden
+- Lehrkraft sieht aktualisierten Status
+
+### Keine automatische Freigabe
+- Lehrkraft muss aktiv entscheiden
+- Verhindert Missbrauch (z.B. Betrieb will schlechte Bewertung "verschwinden lassen")
+
+---
+
 ## Bewertung ohne Betriebsfeedback (Fallback)
 
 ### Wann relevant?
@@ -376,3 +556,14 @@ LETZTE WOCHE: ✅ bestätigt
 | 2024-12-08 | NEU: Internes Betrieb-Feedback (Sterne, Notizen, "auffällig") |
 | 2024-12-08 | NEU: Betrieb-Blacklist (Admin-Funktion) |
 | 2024-12-08 | NEU: Bewertung ohne Betriebsfeedback (Fallback) |
+| 2024-12-09 | ÜBERARBEITET: Terminplanung kalender-basiert mit Greedy-Optimierung |
+| 2024-12-09 | NEU: Lehrkraft-Ansicht mit kombinierter Übersicht aller Betriebe |
+| 2024-12-09 | NEU: System-Vorschläge für Terminverteilung |
+| 2024-12-09 | NEU: Beurteilung-Korrektur durch Betrieb freigeben |
+| 2024-12-09 | NEU: Terminvereinbarung VOR Praktikumsbeginn möglich |
+| 2024-12-09 | NEU: Lehrkraft kann Termin absagen (spiegelbildlich zu Betrieb) |
+| 2024-12-09 | NEU: Mehrere beurteilende Lehrkräfte (betreuend/beurteilend) |
+| 2024-12-09 | NEU: Bewertungs-Deadline im Admin konfigurierbar |
+| 2024-12-09 | GEÄNDERT: Status "Bei Schulleitung" blockiert Prozess nicht |
+| 2024-12-09 | NEU: Betrieb-Account bei "Bei Schulleitung" erstellen (konfigurierbar) |
+| 2024-12-09 | NEU: Rollen-Zuweisung mit 3 Ebenen (Schul-Default, Pro LK, Selbständerung) |

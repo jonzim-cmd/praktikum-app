@@ -118,6 +118,34 @@
 - Dashboard zeigt: Vertragsprozess für Betrieb A + "Du brauchst noch X Tage"
 - Parallele Phasen möglich: Vertrag + weitere Bewerbungen
 
+### Zusage zurückziehen
+
+**Möglich:** Schüler kann Zusage jederzeit VOR Vertragsstart zurückziehen.
+
+**Flow:**
+1. Button "Zusage zurückziehen" in der Zusage-Detail-Ansicht
+2. Pflichtfeld: Grund auswählen
+   - "Andere Zusage erhalten"
+   - "Betrieb hat abgesagt"
+   - "Habe mich umentschieden"
+   - "Sonstiges"
+3. System setzt Status auf "Zurückgezogen"
+4. **Betrieb erhält KEINE Nachricht** (weiß noch nichts vom System)
+5. Lehrkraft sieht im Log: "Zusage zurückgezogen: [Grund]"
+
+### Zwei Zusagen für gleichen Zeitraum
+
+**Nicht möglich:** System verhindert parallelen Vertragsprozess für überlappende Zeiträume.
+
+**Bei Eingabe:**
+- Warnung: "Du hast bereits eine Zusage für 03.-07.02. (Müller GmbH)."
+- "Du kannst nur für einen Betrieb pro Zeitraum den Vertrag starten."
+- "Bitte ziehe eine Zusage zurück, um fortzufahren."
+
+**Lehrkraft sieht:**
+- Warnung wenn Schüler mehrere Zusagen für gleichen Zeitraum hat
+- "⚠️ Zwei Zusagen für gleichen Zeitraum – Schüler muss sich entscheiden"
+
 ---
 
 ## Vertragsprozess
@@ -175,11 +203,22 @@
 - Kann nachträglich nachgeholt werden
 
 ### Krankmeldung
-1. Schüler meldet sich in App krank
-2. Betrieb + Lehrkraft werden automatisch informiert
-3. Attest hochladen (Frist: konfigurierbar, z.B. 3 Tage)
-4. **Fristanzeige:** "Frist: 08.02.2025 (noch 2 Tage)"
-5. Frist verpasst → Tag gilt als UNENTSCHULDIGT
+
+**Ablauf:**
+1. Schüler wählt Krankheitstage aus (ein Tag oder Zeitraum)
+2. "Ich bin heute krank" ODER "Ich bin vom X. bis Y. krank"
+3. Betrieb + Lehrkraft werden automatisch informiert (eine Mail pro Meldung)
+4. Attest hochladen (Frist: konfigurierbar, z.B. 3 Tage)
+5. **Fristanzeige:** "Frist: 08.02.2025 (noch 2 Tage)"
+6. Frist verpasst → Tag gilt als UNENTSCHULDIGT
+
+**E-Mail an Betrieb:**
+- Eine E-Mail pro Krankmeldung (nicht pro Tag)
+- Beispiel: "Max M. ist vom 05.02. bis 07.02. krank."
+- Keine Gesund-Meldung – Schüler erscheint einfach wieder
+
+**Hinweis:**
+- System erwähnt: "Der Betrieb hat möglicherweise eigene Regelungen (z.B. telefonische Krankmeldung)"
 
 ### Kranktage
 - Mit Attest: Werden als "nachzuholen" markiert
@@ -221,14 +260,30 @@
 - Kommentar (optional)
 
 ### Zertifikat herunterladen
-- Nach Abschluss aller Phasen: Schüler kann Zertifikat selbst herunterladen
-- **Inhalt:**
-  - Name des Schülers
-  - Schule + Schullogo
-  - Praktikumszeitraum(e)
-  - Betrieb(e)
-  - Anzahl absolvierter Tage
-  - Optional: Kurze Zusammenfassung / Bestätigung
+
+**Zwei Varianten:**
+
+| Situation | Zertifikat-Typ | Inhalt |
+|-----------|---------------|--------|
+| Alle Tage absolviert | **Vollständiges Zertifikat** | Alle Details, keine Einschränkung |
+| Tage noch nachzuholen | **Vorläufiger Nachweis** | Mit Vermerk "X Tage noch zu absolvieren" |
+
+**Wichtig bei vorläufigem Nachweis:**
+- Formulierung: "X Tage sind noch zu absolvieren" (allgemein)
+- NICHT: "X Tage bei diesem Betrieb nachzuholen" (da Nachholen auch woanders sein kann)
+- Schüler kann vorläufigen Nachweis nutzen, muss aber nachweisen dass Tage nachgeholt werden
+
+**Anzeige im Dashboard (Phase 4):**
+- Falls alle Tage da: "[PDF herunterladen] – Vollständiges Zertifikat"
+- Falls Tage fehlen: "[PDF herunterladen] – Vorläufiger Nachweis (X Tage ausstehend)"
+
+**Inhalt beider Varianten:**
+- Name des Schülers
+- Schule + Schullogo
+- Praktikumszeitraum(e)
+- Betrieb(e)
+- Anzahl absolvierter Tage
+- Optional: Kurze Zusammenfassung / Bestätigung
 - **Format:** PDF, professionell gestaltet
 - **Nutzen:** Für zukünftige Bewerbungen verwendbar
 
@@ -286,3 +341,7 @@
 | 2024-12-08 | NEU: Erinnerung bei fehlendem Check-in |
 | 2024-12-08 | NEU: Zertifikat herunterladen nach Abschluss |
 | 2024-12-08 | NEU: E-Mail-Warnung bei Sammel-Adressen (info@, kontakt@, etc.) |
+| 2024-12-09 | GEÄNDERT: Krankmeldung – Schüler wählt Zeitraum, eine Mail an Betrieb |
+| 2024-12-09 | NEU: Zusage zurückziehen (vor Vertragsstart) |
+| 2024-12-09 | NEU: System verhindert zwei Zusagen für gleichen Zeitraum |
+| 2024-12-09 | GEÄNDERT: Zertifikat – Zwei Varianten (vollständig / vorläufig) |

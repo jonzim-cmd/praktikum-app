@@ -176,8 +176,9 @@ Zeigt dem Schüler, wie viel Zeit noch bleibt:
 
 Wenn Status auf "Zusage" geändert wird:
 1. Schüler gibt Zeitraum ein (Von, Bis, Anzahl Tage)
-2. Vertragsprozess startet sofort (kein Blocker durch Lehrkraft)
-3. Lehrkraft wird informiert und kann Einspruch erheben (selten nötig)
+2. Lehrkraft hat 36h Zeit für Einspruch (Wochenende pausiert)
+3. Kein Einspruch → Vertragsprozess startet automatisch
+4. Einspruch → Schüler wird informiert mit Grund
 
 **Bei Teilzusage** (z.B. nur 5 von 10 Tagen):
 - Schüler bleibt parallel in Bewerbungsphase für restliche Tage
@@ -313,20 +314,20 @@ Am Ende jeder Woche erhält Betrieb Zusammenfassung:
 | ✅ Mit Änderungen | Betrieb kann einzelne Tage korrigieren |
 | ❌ Ablehnen | Lehrkraft wird informiert |
 
-**Stillschweigende Bestätigung:**
-- Wenn Betrieb nicht reagiert: Nach 7 Tagen gilt Schüler-Meldung als bestätigt
-- Klar markiert: "Automatisch bestätigt (keine Reaktion vom Betrieb)"
-- Im Admin-Bereich ausschaltbar
-- Betrieb kann auch danach noch widersprechen
+**Keine stillschweigende Bestätigung:**
+- Wenn Betrieb nicht reagiert: Nach 7 Tagen wird Lehrkraft informiert
+- Lehrkraft muss dann selbst handeln (anrufen, E-Mail schreiben)
+- Mehr Kontrolle, weniger automatische Annahmen
 
 **Später optional:** QR-Code als schnellere Alternative für Betriebe, die das wollen.
 
 ### 6.3 Krankmeldung
 
-1. Schüler meldet sich in App krank
-2. Betrieb + Lehrkraft werden automatisch informiert
+1. Schüler wählt Krankheitstage aus (ein Tag oder Zeitraum)
+2. Betrieb + Lehrkraft werden automatisch informiert (eine Mail pro Meldung)
 3. Schüler muss Attest hochladen (Frist konfigurierbar, z.B. 3 Tage)
 4. Kranktage werden als "nachzuholen" markiert
+5. Keine Gesund-Meldung nötig – Schüler erscheint einfach wieder
 
 ### 6.4 Fortschrittsanzeige
 
@@ -361,7 +362,9 @@ Reflexion des Praktikums, Beurteilung durch Betrieb, Abschluss.
 - Reflexionsbogen ausfüllen (wenn von Schule aktiviert)
 - Ggf. weitere Lernaufgaben (z.B. Bewerbungsmappe hochladen)
 - Kann Praktikum/Betrieb bewerten (interne Weiterempfehlung für zukünftige Schüler)
-- **Zertifikat herunterladen** (nach Abschluss aller Phasen)
+- **Zertifikat herunterladen**
+  - **Vollständiges Zertifikat:** Nach Abschluss aller Phasen (inkl. Nachholen)
+  - **Vorläufiger Nachweis:** Direkt nach Phase 4, mit Vermerk "X Tage noch zu absolvieren"
   - PDF mit Schülername, Schule, Zeitraum, Betrieb(e), Tage
   - Für zukünftige Bewerbungen verwendbar
 

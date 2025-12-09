@@ -1,7 +1,7 @@
 # Entscheidungen: Betrieb-Flow
 
 > Dokumentation aller Entscheidungen, die während der Erarbeitung des Betrieb-Flows getroffen wurden.
-> Stand: 2024-12-08
+> Stand: 2024-12-09
 
 ---
 
@@ -71,6 +71,16 @@ Bei der **ersten E-Mail** (nach Vertragsbestätigung) kann der Betrieb wählen:
 | Von Betrieb selbst erstellt (für Kollegen) | 30 Tage |
 | Nach "Neuen Link anfordern" | Alter wird ungültig |
 
+### Account-Aktivitäts-Tracking
+
+- **Kein Account nötig:** Betrieb kann alles über Magic Links erledigen
+- **Aber:** System trackt, ob Link geklickt wurde
+- **Nach X Tagen ohne jegliche Aktivität:** Lehrkraft wird informiert
+  - "Betrieb XY hat noch nicht auf den Zugangslink reagiert"
+  - Lehrkraft kann dann telefonisch nachfragen
+- **Praktikumsstart ohne Aktivität:** Warnung an Lehrkraft
+  - "⚠️ Betrieb hat keinen aktiven Zugang – ggf. telefonisch klären"
+
 ### Admin-Funktionen für Links
 - Alle aktiven Links eines Betriebs sehen
 - Einzelne Links deaktivieren
@@ -114,6 +124,33 @@ Magic Links ohne zusätzliche Absicherung sind bei Zugriff auf Daten Dritter (Sc
 
 **Alternative für V2:** Passkeys/WebAuthn (State of the Art, aber komplexer)
 
+### Edge Case: Falsche E-Mail-Adresse hinterlegt
+
+**Problem:** Schüler gibt falsche/veraltete E-Mail ein → Betrieb bekommt keinen Code → kann nichts machen
+
+**Lösung: "Problem melden" Flow**
+
+```
+Magic Link geklickt → Code-Eingabe-Screen
+
+"Code wurde an w***r@firma.de gesendet"
+
+[Code eingeben: ______]
+
+┌─────────────────────────────────────────┐
+│ Kein Zugriff auf diese E-Mail-Adresse? │
+│ [Problem melden]                        │
+└─────────────────────────────────────────┘
+```
+
+**Bei Klick auf "Problem melden":**
+1. Formular: "Bitte geben Sie Ihre korrekte E-Mail ein"
+2. Lehrkraft bekommt Benachrichtigung: "Betrieb XY meldet falsche E-Mail"
+3. Lehrkraft prüft und korrigiert (oder lehnt ab)
+4. Neuer Code geht an korrigierte Adresse
+
+**Warum Lehrkraft als Gatekeeper:** Verhindert, dass jemand unbefugt eine andere E-Mail hinterlegt.
+
 ### Datenschutz-Beratung
 
 Empfohlene Ansprechpartner:
@@ -121,19 +158,36 @@ Empfohlene Ansprechpartner:
   - https://www.datenschutz-bayern.de
 - Schulamt / Kultusministerium (haben oft Leitfäden)
 
-### Datensichtbarkeit
+### Datensichtbarkeit im Dashboard
 
-| Daten | Sichtbarkeit für Betrieb |
-|-------|--------------------------|
-| Vorname + Initial | In Mails ("Max M.") |
-| Voller Name | Nur im Dashboard nach Login |
-| Schüler-Kontaktdaten | NIE sichtbar |
-| Krankmeldung | Nur "Praktikant ist krank", kein Detail |
-| Attest | NIE sichtbar (nur für Lehrkraft) |
+**Minimale Datenexposition:** Betrieb sieht nur das absolut Notwendige.
+
+**Betrieb SIEHT:**
+
+| Daten | Beispiel | Begründung |
+|-------|----------|------------|
+| Vorname + Initial | "Max M." | Identifikation, Datensparsamkeit |
+| Praktikumszeitraum | 03.-14.02.2025 | Nötig für Planung |
+| Anwesenheitsstatus | ✓ ✓ 🤒 ✓ ✓ | Kernaufgabe |
+| Lehrkraft-Kontakt | Name + E-Mail | Bei Fragen |
+| Offene Aufgaben | "Beurteilung ausstehend" | Handlungsaufforderung |
+| Eigene Beurteilung | Nur auf Anfrage, nach Freigabe | Korrekturmöglichkeit |
+
+**Betrieb sieht NICHT:**
+
+| Daten | Warum nicht |
+|-------|-------------|
+| Nachname | Nicht nötig für Aufgaben |
+| Adresse/Telefon des Schülers | Kein Bedarf, Datenschutz |
+| Atteste | Gesundheitsdaten, nur für Schule |
+| Klassenbezeichnung | Nicht relevant |
+| Bewertungen der Lehrkraft | Interna |
+| Andere Schüler (außer eigene) | Selbstverständlich |
 
 ### Bei Fehltag im Dashboard
 - Hinweis: "Abwesend (entschuldigt)" oder "Abwesend (unentschuldigt)"
 - NICHT: "Attest eingereicht" (zu viel Info)
+- NICHT: Details zur Krankmeldung
 
 ---
 
@@ -188,11 +242,29 @@ Bei Lehrkraft-Prüfung (Vertrag):
 ### E-Mail-Typen (6 Stück)
 
 1. **Account erstellt** - "Neuer Praktikant: Max M. (03.-14.02.)"
-2. **Krankmeldung** - "Max M. hat sich krank gemeldet" (nur Info, keine Aktion)
-3. **Anwesenheit prüfen** - "Bitte bestätigen Sie die Anwesenheit"
+2. **Krankmeldung** - "Max M. ist heute/am X.-Y. krank" (nur Info, keine Aktion)
+3. **Anwesenheit prüfen** - "Bitte bestätigen Sie die Anwesenheit" (11-12 Uhr am letzten Praktikumstag der Woche)
 4. **Besuchstermin** - "Terminvorschlag von Lehrkraft"
 5. **Beurteilung** - "Bitte bewerten Sie Ihren Praktikanten"
 6. **Neuer Praktikant** (bei bestehendem Account) - "Neuer Praktikant zugewiesen"
+
+---
+
+## Krankmeldung
+
+### E-Mail an Betrieb
+
+- **Eine E-Mail pro Krankmeldung** (nicht pro Tag)
+- Schüler meldet sich für die Tage krank, die er krank ist (1 Tag oder mehrere)
+- Beispiele:
+  - "Max M. ist heute (05.02.) krank."
+  - "Max M. ist vom 05.02. bis 07.02. krank."
+- **Keine Gesund-Meldung** an Betrieb – Schüler erscheint einfach wieder
+
+### Hinweis für Betrieb
+
+- "Dies ist eine automatische Benachrichtigung. Keine Aktion erforderlich."
+- "Hinweis: Der Betrieb hat möglicherweise eigene Regelungen zur Krankmeldung (z.B. telefonische Benachrichtigung)."
 
 ### Sammel-Mails
 
@@ -235,23 +307,21 @@ Bei Lehrkraft-Prüfung (Vertrag):
 - Bei Abweichung: "Mit Änderungen" → Einzelne Tage korrigieren
 
 ### Erinnerungs-Timing
-- **Letzter Praktikumstag der Woche, vormittags**
-- Bei kürzerem Praktikum (Mo-Do): Letzter Praktikumstag
 
-### Nicht-Reaktion
+| Zeitpunkt | Aktion |
+|-----------|--------|
+| Letzter Praktikumstag der Woche, **11-12 Uhr** | E-Mail an Betrieb (Schüler hat sich bereits gemeldet) |
+| Tag 3 ohne Reaktion | Erste Erinnerung |
+| Tag 5 ohne Reaktion | Zweite Erinnerung |
+| Tag 7 ohne Reaktion | **Lehrkraft wird informiert** |
+| Praktikumsende | Gesammelte Info an Lehrkraft für alle offenen Bestätigungen |
 
-| Tag | Aktion |
-|-----|--------|
-| Letzter Praktikumstag der Woche | Erinnerung an Betrieb |
-| 1. Praktikumstag neue Woche (Nachmittag) | Zweite Erinnerung |
-| Nach 7 Tagen ohne Reaktion | Stillschweigend bestätigt |
-| Praktikumsende | Gesammelte Erinnerung für alles Offene |
+### KEINE stillschweigende Bestätigung
 
-### Stillschweigende Bestätigung
-- Nach 7 Tagen ohne Reaktion: Schüler-Meldung gilt als bestätigt
-- **Klar markiert:** "Automatisch bestätigt (keine Reaktion vom Betrieb)"
-- **Im Admin ausschaltbar**
-- Betrieb kann danach immer noch widersprechen
+- **Entscheidung:** Stillschweigende Bestätigung wurde gestrichen
+- **Stattdessen:** Nach 7 Tagen ohne Reaktion wird die **Lehrkraft informiert**
+- Lehrkraft muss dann selbst handeln (anrufen, E-Mail schreiben)
+- **Begründung:** Mehr Kontrolle, weniger automatische Annahmen
 
 ### Widerspruch (Schüler vs. Betrieb)
 - **Betrieb > Schüler** (Betrieb wird vertraut)
@@ -265,29 +335,105 @@ Bei Lehrkraft-Prüfung (Vertrag):
 
 ## Besuchstermine
 
-### Terminvorschlag durch Lehrkraft
-- 1-3 Zeitfenster vorschlagen
-- Betrieb wählt oder schlägt Alternative vor
+### Neuer Ansatz: Kalender-basierte Verfügbarkeit
 
-### Betrieb-Optionen
-- Termin auswählen
-- "Keiner passt - Alternative vorschlagen" (Freitextfeld oder Kalender)
-- Bestätigten Termin absagen (ohne Grund-Pflicht)
+**Prinzip:** Betrieb gibt Verfügbarkeit in 2h-Slots an, Lehrkraft sieht kombinierte Übersicht aller Betriebe.
+
+### Betrieb gibt Verfügbarkeit an
+
+**Kalender-Ansicht mit 2h-Slots:**
+
+```
+VERFÜGBARKEIT FÜR BETRIEBSBESUCH
+Praktikumszeitraum: 03.-14.02.2025
+
+Bitte markieren Sie, wann ein Besuch möglich wäre:
+
+         │  Mo    Di    Mi    Do    Fr
+         │  03.   04.   05.   06.   07.
+─────────┼─────────────────────────────────
+08-10    │  [ ]   [✓]   [✓]   [ ]   [ ]
+10-12    │  [ ]   [✓]   [✓]   [✓]   [ ]
+12-14    │  [ ]   [ ]   [ ]   [ ]   [ ]
+14-16    │  [✓]   [✓]   [✓]   [✓]   [ ]
+16-18    │  [✓]   [✓]   [ ]   [✓]   [ ]
+
+Schnellauswahl:
+[Alle Vormittage]  [Alle Nachmittage]  [Ganzer Tag Mo-Do]
+
+Zusätzliche Hinweise (optional):
+┌─────────────────────────────────────────┐
+│ z.B. "Freitags nie, da Außendienst"    │
+└─────────────────────────────────────────┘
+
+[Verfügbarkeit speichern]
+```
+
+**Granularität:** 2h-Slots als Kompromiss zwischen Flexibilität und Einfachheit
+
+**Schnellauswahl:** Für Betriebe, die nicht jeden Slot einzeln anklicken wollen
+
+**Freitext:** Für Sonderfälle (z.B. "Mittwoch 14-15 Teambesprechung")
+
+### Verfügbarkeit wird gespeichert
+
+- Bei wiederkehrenden Praktikanten: Verfügbarkeit kann wiederverwendet werden
+- Betrieb kann jederzeit aktualisieren
+- Lehrkraft sieht immer aktuelle Verfügbarkeit
+
+### Ablauf nach Verfügbarkeitsangabe
+
+1. Betrieb gibt Verfügbarkeit an
+2. Lehrkraft sieht kombinierte Übersicht aller Betriebe (siehe ENTSCHEIDUNGEN-LEHRKRAFT.md)
+3. System schlägt optimale Verteilung vor (Greedy-Algorithmus)
+4. Lehrkraft wählt Slot und sendet Vorschlag
+5. Betrieb bestätigt oder lehnt ab
+
+### Terminvereinbarung VOR Praktikumsbeginn
+
+- **Wichtig:** Sobald Vertrag bestätigt ist, kann Terminvereinbarung starten
+- Beispiel: Zusage im November, Praktikum im Februar → Termin kann schon im Dezember vereinbart werden
+- Lehrkraft-Kalender muss **über alle Praktikumszeiträume hinweg** funktionieren
+- Bei früher Vereinbarung: Bereits belegte Slots werden bei späteren Terminvereinbarungen berücksichtigt
+
+### Automatische Verfügbarkeits-Anfrage
+
+- **Trigger:** Automatisch **4 Wochen vor Praktikumsbeginn** (konfigurierbar)
+- **ODER:** Lehrkraft kann manuell früher triggern
+- **Nicht sofort nach Vertragsbestätigung:** Würde Betrieb mit Account-Mail + Verfügbarkeitsanfrage gleichzeitig überfordern
+
+### Betrieb-Optionen bei Terminvorschlag
+
+- **[Akzeptieren]** → Termin steht
+- **[Ablehnen]** → Lehrkraft wird informiert, neuer Vorschlag nötig
+- **Keine Reaktion** → Erinnerungen (siehe unten)
+
+### Terminvorschlag: Fallback für Nicht-Kalender-Nutzer
+
+Wenn Betrieb keine Verfügbarkeit angibt:
+- Lehrkraft kann trotzdem 1-3 konkrete Slots vorschlagen
+- Betrieb wählt oder lehnt ab
+- "Keiner passt" → Freitext oder Telefonat
 
 ### Lehrkraft kann ohne Bestätigung eintragen
 - Für telefonisch/per Mail vereinbarte Termine
-- Termin erscheint dann ohne Betrieb-Bestätigung
+- Termin erscheint dann als "Manuell eingetragen"
 
 ### Nicht-Reaktion auf Terminanfrage
 
 | Tag | Aktion |
 |-----|--------|
-| Nach 3 Tagen | Erinnerung an Betrieb |
-| Nach 5 Tagen | Info an Lehrkraft |
+| Nach 3 Tagen | Erste Erinnerung an Betrieb |
+| Nach 5 Tagen | Zweite Erinnerung an Betrieb |
+| Nach 7 Tagen | Info an Lehrkraft ("Betrieb reagiert nicht") |
+
+**Einheitliches Schema:** Alle Betrieb-Aktionen folgen dem gleichen Muster (3→5→7 Tage).
+Lehrkraft klärt dann telefonisch.
 
 ### Kurzfristige Absage
-- Betrieb kann jederzeit absagen
+- Betrieb kann bestätigten Termin jederzeit absagen
 - Lehrkraft bekommt **sofort** Benachrichtigung (Push + Mail)
+- Grund optional (kein Pflichtfeld)
 
 ### Verschiedene Ansprechpartner im gleichen Betrieb
 - System zeigt Lehrkraft Warnung: "Achtung: 2 verschiedene Ansprechpartner"
@@ -297,6 +443,11 @@ Bei Lehrkraft-Prüfung (Vertrag):
 ### Verschiedene Lehrkräfte beim gleichen Betrieb
 - V1: Nicht behandeln (Lehrkräfte koordinieren sich intern)
 - V2: Eventuell Hinweis ergänzen
+
+### Bei Scheitern der App-Terminierung
+- Wenn keine Einigung über App möglich → Telefonat
+- Lehrkraft trägt Ergebnis manuell ein
+- Das ist okay, nicht alles muss digital sein
 
 ---
 
@@ -321,10 +472,15 @@ Bei Lehrkraft-Prüfung (Vertrag):
 - Bei Unterbrechung: Weiter wo man war
 
 ### Nicht ausgefüllt (Erinnerungen)
-- Nach 3 Tagen: Erinnerung
-- Nach 7 Tagen: Erinnerung
-- Danach: Keine weiteren automatischen Erinnerungen
-- **Im Admin:** Mehr Erinnerungen einstellbar
+
+| Tag | Aktion |
+|-----|--------|
+| Nach 3 Tagen | Erste Erinnerung |
+| Nach 7 Tagen | Zweite Erinnerung |
+| Nach 10 Tagen | **Lehrkraft wird informiert** |
+
+- **Im Admin:** Intervalle konfigurierbar
+- Beurteilung hat längere Fristen als andere Aktionen (ist wichtiger, braucht mehr Zeit)
 
 ### Absoluter Fallback
 - Wenn Betrieb trotz allem nicht bewertet:
@@ -334,6 +490,67 @@ Bei Lehrkraft-Prüfung (Vertrag):
 ### Beurteilung muss vom Betrieb kommen
 - Lehrkraft kann NICHT selbst ausfüllen
 - Ausnahme: Lehrkraft als "Überzeugungsarbeit" am Telefon → Betrieb klickt dann selbst
+
+### Beurteilung nach Absenden: Korrekturanfrage
+
+**Prinzip:** Nach Absenden ist Beurteilung final. Betrieb kann aber Korrektur anfragen.
+
+**Flow:**
+
+```
+Betrieb sendet Beurteilung ab
+        │
+        ▼
+┌─────────────────────────────────────────┐
+│ ⚠️ Beurteilung wirklich absenden?       │
+│                                         │
+│ Nach dem Absenden können Sie die        │
+│ Beurteilung nicht mehr selbstständig    │
+│ ändern. Bei Fehlern können Sie eine     │
+│ Korrektur bei der Lehrkraft anfragen.   │
+│                                         │
+│ [Abbrechen]     [Endgültig absenden]    │
+└─────────────────────────────────────────┘
+        │
+        ▼
+"Beurteilung abgesendet."
+```
+
+**Im Dashboard (nach Absenden):**
+
+```
+┌─────────────────────────────────────────┐
+│ Max M. – Beurteilung abgesendet ✓       │
+│ am 12.02.2025                           │
+│                                         │
+│ [Korrektur anfragen]                    │
+└─────────────────────────────────────────┘
+```
+
+**Bei Klick auf "Korrektur anfragen":**
+
+```
+"Korrekturanfrage senden?
+ Die Lehrkraft wird benachrichtigt und
+ kann die Beurteilung zur Bearbeitung
+ freigeben."
+
+[Abbrechen]  [Anfrage senden]
+```
+
+**Lehrkraft erhält Push/Mail:**
+- "Müller GmbH bittet um Korrektur der Beurteilung für Max M."
+- [Ablehnen] [Freigeben]
+
+**Nach Freigabe:**
+- Betrieb erhält Mail: "Ihre Korrekturanfrage wurde genehmigt. [Beurteilung bearbeiten]"
+- Magic Link (oder Dashboard-Link bei Account)
+- Betrieb kann bearbeiten und erneut absenden
+
+**Status-Übergänge:**
+```
+Offen → Abgesendet → [Korrektur angefragt] → [Lehrkraft gibt frei] → Zur Korrektur → Erneut abgesendet
+```
 
 ---
 
@@ -364,14 +581,43 @@ Praktikumsplatz für zukünftige Schüler auflisten?
 ### Nicht beantwortet
 - Bei nächstem Praktikant wieder fragen
 
-### Opt-out
-- In Mail: "Austragen"-Link unten
-- In Einstellungen: Option zum Austragen
-- Sofortige Löschung aus Datenbank
+### Opt-out / Austragen aus Datenbank
+
+**Wo verfügbar:**
+- In jeder E-Mail: Footer-Link "Aus Praktikumsdatenbank austragen"
+- Bei Account: In Einstellungen unter "Praktikumsdatenbank"
+
+**Flow:**
+
+```
+[Link/Button klicken]
+        │
+        ▼
+┌─────────────────────────────────────────┐
+│ Aus Praktikumsdatenbank austragen?      │
+│                                         │
+│ Ihr Betrieb wird nicht mehr als         │
+│ möglicher Praktikumsplatz angezeigt.    │
+│                                         │
+│ Sie können sich jederzeit wieder        │
+│ eintragen.                              │
+│                                         │
+│ [Abbrechen]     [Austragen]             │
+└─────────────────────────────────────────┘
+        │
+        ▼
+"Sie wurden ausgetragen."
+```
+
+**Technisch:**
+- Sofortige Löschung aus der Praktikumsdatenbank
+- Betriebsstammdaten bleiben (für laufende/vergangene Praktika)
+- DSGVO-konform: Widerruf der Einwilligung
 
 ### Rechtlich
 - Einwilligung ist nötig (DSGVO)
 - Opt-in, nicht Opt-out
+- Widerruf muss jederzeit möglich sein (ist er: siehe oben)
 
 ---
 
@@ -498,3 +744,16 @@ Ihre Historie:
 | 2024-12-08 | Alle Änderungen in anderen Dokumenten als ✅ ERLEDIGT markiert |
 | 2024-12-08 | NEU: Wahlmöglichkeit von Anfang an (Passwort ODER Magic Link bei erster Mail) |
 | 2024-12-08 | NEU: Nachträglicher Wechsel + Link-Anmeldung deaktivieren |
+| 2024-12-09 | NEU: Edge Case "Falsche E-Mail-Adresse" mit "Problem melden" Flow |
+| 2024-12-09 | ERWEITERT: Datensichtbarkeit im Dashboard (was Betrieb sieht/nicht sieht) |
+| 2024-12-09 | NEU: Beurteilung-Korrekturanfrage Flow (Betrieb fragt an, Lehrkraft gibt frei) |
+| 2024-12-09 | ÜBERARBEITET: Besuchstermine mit Kalender-basierter Verfügbarkeit (2h-Slots) |
+| 2024-12-09 | NEU: Austragen aus Praktikumsdatenbank Flow |
+| 2024-12-09 | GEÄNDERT: Stillschweigende Bestätigung gestrichen → Lehrkraft wird informiert |
+| 2024-12-09 | GEÄNDERT: Anwesenheits-E-Mail um 11-12 Uhr (nicht vormittags allgemein) |
+| 2024-12-09 | NEU: Einheitliche Erinnerungsfristen (3→5→7 Tage), Ausnahme Beurteilung (3→7→10) |
+| 2024-12-09 | NEU: Krankmeldung – Schüler meldet sich für X Tage, eine Mail |
+| 2024-12-09 | NEU: Account-Aktivitäts-Tracking (Lehrkraft wird informiert bei Inaktivität) |
+| 2024-12-09 | NEU: Terminvereinbarung VOR Praktikumsbeginn möglich |
+| 2024-12-09 | GEÄNDERT: Beurteilungs-Warnung erwähnt Korrekturmöglichkeit |
+| 2024-12-09 | NEU: Automatische Verfügbarkeits-Anfrage 4 Wochen vor Praktikum (konfigurierbar) |

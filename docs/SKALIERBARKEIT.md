@@ -202,13 +202,34 @@ interface Glossar {
 
 ### 6. Zeiträume & Deadlines
 
-| Parameter | Konfigurierbar |
-|-----------|----------------|
-| Praktikumszeiträume pro Schuljahr | ✅ PFLICHT |
-| Ferienzeiten (für Validierung) | ✅ PFLICHT |
-| Deadline-Defaults (Attest, Aufgaben) | ✅ PFLICHT |
-| Erinnerungs-Intervalle | ✅ PFLICHT |
-| Stillschweigende Bestätigung (Tage) | ✅ PFLICHT |
+| Parameter | Beispiel | Konfigurierbar |
+|-----------|----------|----------------|
+| Praktikumszeiträume pro Schuljahr | 03.-14.02.2025 | ✅ PFLICHT |
+| Ferienzeiten (für Validierung) | Faschingsferien, Osterferien | ✅ PFLICHT |
+| Attest-Frist (Tage) | 3 (Default) | ✅ PFLICHT |
+| Bewertungs-Deadline (Datum) | 28.02.2025 | ✅ PFLICHT |
+| Erinnerungs-Intervalle (Tage) | 3, 5, 7 | ✅ PFLICHT |
+| Verfügbarkeits-Anfrage Vorlauf (Wochen) | 4 (Default) | ✅ PFLICHT |
+
+**Datenmodell-Vorschlag:**
+
+```typescript
+interface DeadlineConfig {
+  attestFristTage: number;           // z.B. 3
+  bewertungsDeadline: Date | null;   // z.B. 2025-02-28, null = keine Frist
+  verfuegbarkeitsAnfrageVorlaufWochen: number; // z.B. 4
+  erinnerungsIntervalle: {
+    ersteMail: number;               // z.B. 3 (Tage)
+    zweiteMail: number;              // z.B. 5
+    eskalation: number;              // z.B. 7
+  };
+  beurteilungIntervalle: {           // Längere Fristen für Beurteilung
+    ersteMail: number;               // z.B. 3
+    zweiteMail: number;              // z.B. 7
+    eskalation: number;              // z.B. 10
+  };
+}
+```
 
 ### 7. Authentifizierung (Betrieb)
 
@@ -232,6 +253,58 @@ interface Glossar {
 | Internes Betrieb-Feedback | An | ✅ PFLICHT |
 | Zertifikat-Download | An | ✅ PFLICHT |
 | Krankmeldung über App | An | ✅ PFLICHT |
+
+### 9. Vertragsprozess-Konfiguration
+
+| Parameter | Beispiel | Konfigurierbar |
+|-----------|----------|----------------|
+| Betrieb-Account bei "Bei Schulleitung" | Ja (Default) / Nein | ✅ PFLICHT |
+
+**Datenmodell-Vorschlag:**
+
+```typescript
+interface VertragConfig {
+  accountErstellungBeiSchulleitung: boolean; // true = Account bei "Bei Schulleitung", false = erst bei "Fertig"
+}
+```
+
+### 10. Bewertungs-Konfiguration
+
+| Parameter | Beispiel | Konfigurierbar |
+|-----------|----------|----------------|
+| Mehrere beurteilende Lehrkräfte | Betreuend + Beurteilend | ✅ PFLICHT |
+| Wer bewertet welchen Abschnitt | Konfigurierbar pro Schule | ✅ PFLICHT |
+| Wer vergibt Gesamtnote | Beurteilende LK (Default) | ✅ PFLICHT |
+| Rollen-Zuweisung änderbar durch LK | Ja (Default) | ✅ PFLICHT |
+
+**Datenmodell-Vorschlag:**
+
+```typescript
+interface BewertungsRollenConfig {
+  einzelneLehrkraft: boolean;          // true = eine LK macht alles
+  lehrkraftKannRolleAendern: boolean;  // true = LK kann eigene Zuordnung ändern
+  rollenZuordnung?: {
+    bewerbungsprozess: 'betreuend' | 'beurteilend' | 'beide';
+    lernaufgaben: 'betreuend' | 'beurteilend' | 'beide';
+    gesamteindruck: 'betreuend' | 'beurteilend' | 'beide';
+    gesamtnote: 'betreuend' | 'beurteilend';
+  };
+}
+
+// Rollen-Zuweisung Hierarchie:
+// 1. Schul-Default (Admin legt fest)
+// 2. Pro Lehrkraft (Admin kann individuell abweichen)
+// 3. Selbständerung (Lehrkraft passt eigene Rolle an)
+// Priorität: Selbständerung > Pro Lehrkraft > Schul-Default
+```
+
+**Typische Konfigurationen:**
+
+| Schultyp | Betreuende LK | Beurteilende LK |
+|----------|---------------|-----------------|
+| Default | Alles | - |
+| Getrennt | Bewerbung, Praktikum | Lernaufgaben, Note |
+| Komplex | Teil 1 | Teil 2, Note |
 
 ---
 
@@ -366,4 +439,12 @@ Bei JEDER neuen Funktion fragen:
 | Datum | Änderung |
 |-------|----------|
 | 2024-12-08 | Initiale Version |
+| 2024-12-09 | ERWEITERT: Zeiträume & Deadlines mit Datenmodell |
+| 2024-12-09 | NEU: Attest-Frist konfigurierbar |
+| 2024-12-09 | NEU: Erinnerungsintervalle konfigurierbar (3→5→7 Default, Beurteilung 3→7→10) |
+| 2024-12-09 | NEU: Bewertungs-Deadline konfigurierbar |
+| 2024-12-09 | NEU: Abschnitt 9 – Vertragsprozess-Konfiguration (Account bei Schulleitung) |
+| 2024-12-09 | NEU: Abschnitt 10 – Bewertungs-Konfiguration (mehrere Lehrkräfte, Rollen-Zuweisung) |
+| 2024-12-09 | NEU: Verfügbarkeits-Anfrage Vorlauf konfigurierbar (4 Wochen Default) |
+| 2024-12-09 | NEU: Rollen-Zuweisung mit 3 Ebenen (Schul-Default, Pro LK, Selbständerung) |
 
