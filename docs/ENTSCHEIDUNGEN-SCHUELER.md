@@ -79,7 +79,7 @@
 - System zeigt: "Versuche es woanders!"
 
 ### Betrieb-Eingabe mit Duplikaterkennung
-- **Adress-Autocomplete:** Google Places API für normalisierte Adressen
+- **Adress-Autocomplete:** Photon API (OSM-basiert, DSGVO-konform) für normalisierte Adressen
 - **Fuzzy-Matching:** System zeigt ähnliche Betriebe ("Meintest du...?")
 - Schüler kann bestehenden Betrieb auswählen oder "Nein, neuer Betrieb" bestätigen
 - Verhindert Duplikate (z.B. "Müller GmbH" vs. "Mueller GMBH")
@@ -223,6 +223,7 @@
 ### Kranktage
 - Mit Attest: Werden als "nachzuholen" markiert
 - Ohne Attest (Frist verpasst): Gilt als unentschuldigt, Konsequenzen
+- **🔒 Datenschutz:** Attest-Foto wird nach Lehrkraft-Bestätigung automatisch gelöscht (nur Vermerk "Attest: ✅" bleibt)
 
 ### Fortschrittsanzeige
 - X von Y Tagen absolviert

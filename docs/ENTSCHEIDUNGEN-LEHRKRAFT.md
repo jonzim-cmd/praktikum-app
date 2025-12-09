@@ -496,7 +496,7 @@ Betrieb hat Beurteilung abgesendet, möchte aber nachträglich korrigieren.
 ## Betrieb-Duplikaterkennung
 
 ### Goldstandard-Ansatz
-1. **Google Places API** für Adress-Normalisierung (Autocomplete)
+1. **Photon API** (OSM-basiert, DSGVO-konform) für Adress-Normalisierung (Autocomplete)
 2. **Fuzzy-Match** auf normalisiertem Firmennamen + exakte PLZ
 3. **Admin-Merge-Funktion** falls Duplikate durchrutschen
 

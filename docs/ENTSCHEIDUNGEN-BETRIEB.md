@@ -122,7 +122,7 @@ Magic Links ohne zusätzliche Absicherung sind bei Zugriff auf Daten Dritter (Sc
 - Chrome auf Handy = neuer Code nötig
 - Bei aktivem Praktikum (2 Wochen): Timer resettet ständig, läuft selten ab
 
-**Alternative für V2:** Passkeys/WebAuthn (State of the Art, aber komplexer)
+**Passkeys/WebAuthn:** Ab V1 verfügbar (nach erstem Login wird Einrichtung angeboten). Siehe `ENTSCHEIDUNGEN-DATENSCHUTZ.md`.
 
 ### Edge Case: Falsche E-Mail-Adresse hinterlegt
 
@@ -726,7 +726,7 @@ Ihre Historie:
 - [ ] **🚨 KRITISCH:** Datenschutz-Konzept mit Datenschutzbeauftragtem klären
   - Magic Link + E-Mail-Verifizierung ausreichend?
   - Alternative: PIN in erster Mail?
-  - Passkeys/WebAuthn für V2?
+  - ✅ Passkeys/WebAuthn bereits in V1 eingeplant (siehe `ENTSCHEIDUNGEN-DATENSCHUTZ.md`)
   - **Falls nicht ausreichend:** Komplett auf Passwort-Login umstellen
   - **Implementierung:** Authentifizierung modular halten für schnelle Anpassung!
 - [ ] Genaue Aufbewahrungsfristen für Betrieb-Daten

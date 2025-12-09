@@ -59,6 +59,8 @@
                                ▼
                     ┌─────────────────────┐
                     │  [Loggt sich ein]   │
+                    │  (Biometrie optional│
+                    │   aktivierbar)      │
                     └──────────┬──────────┘
                                │
                                ▼
@@ -151,7 +153,7 @@
            │  └─────────────────────────────────┘   │
            │                                         │
            │  Adresse:      [________________]       │
-           │               (Google Places API)       │
+           │               (Photon - OSM-basiert)    │
            │                                         │
            │  Kontaktart:   ○ E-Mail                 │
            │                ○ Anruf                  │
@@ -731,6 +733,11 @@
         │                    │ (noch 2 Tage)        │      │
         │                    │                       │      │
         │                    │ [Attest hochladen]    │      │
+        │                    │                       │      │
+        │                    │ 🔒 DATENSCHUTZ:       │      │
+        │                    │ Foto wird nach LK-   │      │
+        │                    │ Bestätigung auto-    │      │
+        │                    │ matisch gelöscht!    │      │
         │                    └───────────┬───────────┘      │
         │                                │                  │
         │               ┌────────────────┴────────────────┐ │
@@ -1050,7 +1057,7 @@
 - Option "Keine Abgabe" bei Aufgaben
 
 ### ✅ 8. Betrieb-Duplikaterkennung
-- Google Places API für Adress-Autocomplete
+- **Photon API** (OSM-basiert, DSGVO-konform) für Adress-Autocomplete
 - Fuzzy-Match zeigt ähnliche Betriebe ("Meintest du...?")
 - Schüler kann bestehenden Betrieb auswählen oder "Nein, neuer Betrieb" bestätigen
 - Verhindert Duplikate (z.B. "Müller GmbH" vs. "Mueller GMBH")

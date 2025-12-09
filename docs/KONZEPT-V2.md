@@ -283,16 +283,18 @@ Schüler gibt unterschriebenen Vertrag an Lehrkraft:
 
 **Dann:** Automatische E-Mail an Betrieb mit Zugangsoptionen.
 
-**Authentifizierung (Magic Link + E-Mail-Verifizierung):**
+**Authentifizierung (Magic Link + E-Mail-Verifizierung + Passkey-Option):**
 - Betrieb klickt Magic Link → E-Mail-Verifizierungs-Code wird gesendet
 - Code eingeben → Browser wird 90 Tage "vertraut" (Cookie-basiert)
 - Nach 90 Tagen Inaktivität oder neuem Browser: Code erneut nötig
 - Optional: Betrieb kann jederzeit Passwort-Login einrichten
+- **NEU ab V1:** Nach erstem Login Passkey-Einrichtung anbieten (Face ID/Touch ID/PIN)
 
-**Warum 2FA-light?**
+**Warum 2FA-light + Passkey?**
 - Magic Links allein = Sicherheitsrisiko bei Zugriff auf Schülerdaten
 - E-Mail-Verifizierung verhindert unbefugten Zugriff bei weitergeleiteten Links
-- Details: `docs/ENTSCHEIDUNGEN-BETRIEB.md`
+- Passkeys = bessere UX (1 Klick statt E-Mail-Code holen)
+- Details: `docs/ENTSCHEIDUNGEN-BETRIEB.md` und `docs/ENTSCHEIDUNGEN-DATENSCHUTZ.md`
 
 ---
 
@@ -332,8 +334,9 @@ Am Ende jeder Woche erhält Betrieb Zusammenfassung:
 1. Schüler wählt Krankheitstage aus (ein Tag oder Zeitraum)
 2. Betrieb + Lehrkraft werden automatisch informiert (eine Mail pro Meldung)
 3. Schüler muss Attest hochladen (Frist konfigurierbar, z.B. 3 Tage)
-4. Kranktage werden als "nachzuholen" markiert
-5. Keine Gesund-Meldung nötig – Schüler erscheint einfach wieder
+4. **🔒 Datenschutz:** Attest-Foto wird nach Lehrkraft-Bestätigung automatisch gelöscht (nur Vermerk "Attest: ✅" bleibt)
+5. Kranktage werden als "nachzuholen" markiert
+6. Keine Gesund-Meldung nötig – Schüler erscheint einfach wieder
 
 ### 6.4 Fortschrittsanzeige
 
