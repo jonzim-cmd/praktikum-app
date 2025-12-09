@@ -23,6 +23,7 @@ Die Grundkonzeption ist abgeschlossen:
 | `ENTSCHEIDUNGEN-LEHRKRAFT.md` | ✅ Fertig |
 | `ENTSCHEIDUNGEN-BETRIEB.md` | ✅ Fertig |
 | `SKALIERBARKEIT.md` | ✅ Grundstruktur fertig |
+| `DATENSCHUTZ.md` | ⏳ **TODO** |
 | `EDGE-CASES.md` | ✅ In Arbeit |
 | `V2-FEATURES.md` | ✅ Fertig |
 | `FLOW-ADMIN.md` | ⏳ **TODO** |
@@ -77,7 +78,7 @@ Die Grundkonzeption ist abgeschlossen:
 - Schüler importieren/anlegen
 - Lehrkräfte anlegen und Betreuungen zuweisen
 - Praktikumszeiträume festlegen
-- Ferien eintragen
+- Ferien eintragen -> Ferien über API abrufen, z.B. https://openholidaysapi.org
 - Schulkonfiguration anpassen
 - Betriebe sperren (Blacklist)
 - Duplikate zusammenführen
@@ -151,20 +152,28 @@ Nach Abschluss der Konzeptphase:
 1. Flows auf Konsistenz prüfen
    └── Widersprüche finden und beheben
 
-2. Flows auf Skalierbarkeit prüfen
+2. Flows auf Datenschutz prüfen
+   └── DATENSCHUTZ.md ausarbeiten
+   └── Datensichtbarkeit pro Rolle definieren
+   └── Löschfristen und Einwilligungen klären
+   └── Implizite Annahmen in Flows explizit machen
+
+3. Flows auf Skalierbarkeit prüfen
    └── Hardcodierte Annahmen dokumentieren
    └── SKALIERBARKEIT.md erweitern
+   └── (Jetzt mit Datenschutz-Wissen!)
 
-3. Admin-Flow erstellen
+4. Admin-Flow erstellen
    └── Schuladmin-Flow
    └── Superadmin-Flow
    └── Konfigurationskonzept finalisieren
+   └── Datenschutz-Konfiguration einbauen
 
-4. Finaler Review
+5. Finaler Review
    └── Alle Dokumente nochmal durchgehen
    └── Lücken schließen
 
-5. Technische Phase starten
+6. Technische Phase starten
    └── Datenmodell
    └── Architektur
    └── MVP-Scope

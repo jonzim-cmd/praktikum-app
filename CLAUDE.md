@@ -23,11 +23,26 @@ Eine App zur Verwaltung von Schülerpraktika – **skalierbar auf alle Schularte
 
 ---
 
+## 🛡️ WICHTIG: Datenschutz mitdenken!
+
+**Datenschutz darf die App nicht kaputt machen – aber er muss von Anfang an eingebaut sein.**
+
+Leitprinzipien:
+- **Datenminimierung:** Nur sammeln, was wirklich gebraucht wird
+- **Privacy by Design:** Kreative Lösungen statt "geht nicht wegen DSGVO"
+- **UX first, dann Datenschutz-Lösung finden:** Der Spagat muss gelingen
+- **Besondere Vorsicht:** Minderjährige + Gesundheitsdaten (Atteste)
+
+Siehe: `docs/DATENSCHUTZ.md`
+
+---
+
 ## Wichtige Konzept-Dokumente
 
 | Dokument | Inhalt | Status |
 |----------|--------|--------|
 | `docs/SKALIERBARKEIT.md` | 🔴 **PFLICHT:** Konfigurierbarkeit, Bundesland-Support | ✅ Neu |
+| `docs/DATENSCHUTZ.md` | 🛡️ **PFLICHT:** Privacy by Design, DSGVO, Datensichtbarkeit | ✅ Neu |
 | `docs/KONZEPT-V2.md` | Hauptkonzept: Phasen, Rollen, Entscheidungen, Bewertung | ✅ In Arbeit |
 | `docs/FLOW-SCHUELER.md` | Kompletter Schüler-Flow als ASCII-Diagramm | ✅ Fertig |
 | `docs/FLOW-LEHRKRAFT.md` | Lehrkraft-Flow | ✅ Fertig |
@@ -78,6 +93,7 @@ Details in `docs/KONZEPT-V2.md`
 2. **Betriebe dürfen es nicht hassen** → Minimaler Aufwand
 3. **Schüler zur Eigenverantwortung führen** → Klare Aufgaben, Nachweispflicht
 4. **Skalierbarkeit von Tag 1** → Keine hardcodierten Werte, alles konfigurierbar
+5. **Datenschutz ohne UX-Verlust** → Kreativ & schlau, nicht "geht nicht"
 
 ---
 
