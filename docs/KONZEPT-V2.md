@@ -64,7 +64,7 @@
 - **Hauptaktionen:** Bewerbungen tracken, Verträge organisieren, Anwesenheit dokumentieren, Aufgaben bearbeiten
 
 ### 2.2 Lehrkraft (Betreuung)
-- **Gerät:** Desktop + Mobile
+- **Gerät:** Smartphone (Mobile-First) + Desktop (für komplexere Aufgaben wie Bewertungen)
 - **Hauptaktionen:** Schüler-Übersicht, Betriebsbesuche planen, Aufgaben bewerten, Bewerbungsprozess beurteilen
 
 ### 2.3 Betrieb (Ansprechpartner)
@@ -260,22 +260,28 @@ Schüler gibt unterschriebenen Vertrag an Lehrkraft:
 - Lehrkraft lädt den **fertigen** Vertrag (mit allen Unterschriften inkl. Schule) hoch
 - Oder: Lehrkraft lehnt ab (z.B. "Unterschrift fehlt", "Betrieb ungeeignet")
 
-### 5.3 Vertragsstatus (vereinfacht)
+### 5.3 Vertragsstatus
 
 | Status | Bedeutung | Wer ist dran? |
 |--------|-----------|---------------|
 | 📝 Unterschriften sammeln | Schüler holt Unterschriften (Eltern, Betrieb) | Schüler |
-| 📥 Bei Lehrkraft | Schüler hat abgegeben, Schule muss unterschreiben | Lehrkraft |
+| 📥 Bei Lehrkraft | Schüler hat abgegeben, Lehrkraft prüft | Lehrkraft |
+| 🏫 Bei Schulleitung/Sekretariat | Optional: Vertrag zur Unterschrift weitergereicht | Schulleitung |
 | ✅ Bestätigt | Vertrag vollständig, Betrieb-Account wird erstellt | - |
 | ❌ Abgelehnt | Lehrkraft hat abgelehnt (mit Grund) | Schüler |
 
+> **Hinweis:** Der Status "Bei Schulleitung" ist optional und dient der eigenen Übersicht. Er blockiert den Prozess nicht.
+
 ### 5.4 Betrieb-Account
 
-**Account wird erst erstellt, wenn:**
-- Vertrag unterschrieben und hochgeladen
-- Lehrkraft hat geprüft und bestätigt
+**Wann wird Account erstellt? (konfigurierbar im Admin)**
 
-**Dann:** Automatische E-Mail an Betrieb mit Magic Link.
+| Option | Beschreibung | Wann sinnvoll |
+|--------|--------------|---------------|
+| **Bei "Bei Schulleitung"** (Default) | Account wird erstellt sobald LK den Vertrag weiterreicht | Schulleitung-Unterschrift ist nur Formalie |
+| **Erst bei "Bestätigt"** | Account wird erst erstellt wenn Vertrag komplett | Schulleitung muss rechtlich erst genehmigen |
+
+**Dann:** Automatische E-Mail an Betrieb mit Zugangsoptionen.
 
 **Authentifizierung (Magic Link + E-Mail-Verifizierung):**
 - Betrieb klickt Magic Link → E-Mail-Verifizierungs-Code wird gesendet
@@ -577,6 +583,10 @@ Lehrkraft bewertet nach der Bewerbungsphase:
 | 2024-12-07 | Deadlines + "Keine Abgabe" Option für Lernaufgaben |
 | 2024-12-08 | NEU: Zertifikat für Schüler nach Praktikumsabschluss |
 | 2024-12-08 | Betrieb: Magic Link + E-Mail-Verifizierung dokumentiert |
-| 2024-12-08 | Betrieb: Stillschweigende Anwesenheitsbestätigung (7 Tage) |
+| 2024-12-08 | Betrieb: KEINE stillschweigende Anwesenheitsbestätigung (nach 7 Tagen → Lehrkraft wird informiert) |
 | 2024-12-08 | Admin: Betrieb-Blacklist + Duplikate-Merge |
 | 2024-12-08 | Praktikumsdatenbank als V1-Feature (mit Opt-in) |
+| 2024-12-09 | KORRIGIERT: Vertragsstatus um "Bei Schulleitung" ergänzt |
+| 2024-12-09 | KORRIGIERT: Betrieb-Account Erstellung konfigurierbar (Default: Bei Schulleitung) |
+| 2024-12-09 | KORRIGIERT: Lehrkraft-Gerät = Mobile-First + Desktop |
+| 2024-12-09 | KORRIGIERT: Änderungshistorie zur stillschweigenden Bestätigung |
