@@ -60,6 +60,14 @@
                                ▼
                     ┌─────────────────────┐
                     │   Login-Screen      │
+                    │                     │
+                    │  • Benutzername +   │
+                    │    Passwort         │
+                    │                     │
+                    │  • [Login mit ByCS] │
+                    │    (V2, deaktiviert │
+                    │    in V1)           │
+                    │                     │
                     │  (Biometrie optional│
                     │   aktivierbar)      │
                     └──────────┬──────────┘
@@ -198,6 +206,13 @@
         │  Adresse: Musterstraße 1, 12345 Stadt       │
         │  Zeitraum: 03.02. - 07.02.2025 (5 Tage)     │
         │  Ansprechpartner: Frau Schmidt              │
+        │                                             │
+        │  ┌─────────────────────────────────────┐    │
+        │  │ ⚠️ TEILZUSAGE                        │    │
+        │  │ 5 von 10 Tagen abgedeckt            │    │
+        │  │ Noch 5 Tage offen (10.-14.02.)      │    │
+        │  └─────────────────────────────────────┘    │
+        │  (Nur bei Teilzusagen sichtbar)             │
         │                                             │
         │  ⏱️ Einspruch möglich für noch: 35h 42min   │
         │     (Wochenende pausiert)                   │
@@ -475,6 +490,14 @@
 │  │ ✅ ZUSAGE / FERTIG (3)                                                   │   │
 │  │   Anna Schmidt     │ ✅ Zusage        │ Müller GmbH         │ [Details] │   │
 │  │   ...                                                                    │   │
+│  └─────────────────────────────────────────────────────────────────────────┘   │
+│                                                                                 │
+│  ┌─────────────────────────────────────────────────────────────────────────┐   │
+│  │ ⚠️ TEILZUSAGE (2)                                                        │   │
+│  │   Max Müller       │ 5/10 Tage       │ XY GmbH (Woche 1)   │ [Details] │   │
+│  │   Lisa Weber       │ 5/10 Tage       │ ABC AG (Woche 2)    │ [Details] │   │
+│  │                                                                          │   │
+│  │   → Haben Zusage, aber noch nicht alle Tage abgedeckt                   │   │
 │  └─────────────────────────────────────────────────────────────────────────┘   │
 │                                                                                 │
 └─────────────────────────────────────────────────────────────────────────────────┘
@@ -1687,8 +1710,13 @@ Nach kritischer Durchsicht des Flows wurden folgende Punkte identifiziert:
 
 ### Noch offen (für spätere Iteration)
 
-- [ ] **Mehrere Betriebe bei Bewertung:** UI für 2+ Praktikumsblöcke (Entscheidung: Gewichteter Durchschnitt, UI-Detail bei Implementierung)
 - [ ] **Reports/Exporte:** V1 nur über Admin, Lehrkraft-Export in V2 (siehe V2-FEATURES.md)
+
+### Teilzusage-Ergänzungen (erledigt)
+
+- [x] **Teilzusage-Hinweis in Zusage-Details:** Zeigt "X von Y Tagen abgedeckt" und fehlende Tage
+- [x] **Teilzusage-Kategorie in Schüler-Übersicht:** Eigene Gruppe für Schüler mit unvollständiger Abdeckung
+- [x] **Mehrere Betriebe bei Bewertung:** Gewichteter Durchschnitt nach Tagen (siehe ENTSCHEIDUNGEN-SCHUELER.md)
 
 ### Geklärt, nicht in Flow (Systemverhalten)
 
@@ -1714,6 +1742,7 @@ Nach kritischer Durchsicht des Flows wurden folgende Punkte identifiziert:
 | 2024-12-08 | Betrieb-Terminreaktion (Bestätigt/Abgelehnt/Alternative) |
 | 2024-12-08 | Selbstprüfung: Offene Punkte dokumentiert |
 | 2024-12-08 | NEU: Reaktiver Flow 5 (Nachholnachweis prüfen) |
+| 2024-12-10 | Teilzusage: Hinweis in Zusage-Details, eigene Kategorie in Schüler-Übersicht |
 | 2024-12-08 | NEU: Bewerbungs-Details-Ansicht |
 | 2024-12-08 | Erweitert: 6 Erinnerungs-Trigger für Lehrkraft |
 | 2024-12-08 | Synchronisationstabelle um Phase 5 ergänzt |
@@ -1728,3 +1757,4 @@ Nach kritischer Durchsicht des Flows wurden folgende Punkte identifiziert:
 | 2024-12-09 | NEU: Slot-Details bei Klick auf Kalender-Slot |
 | 2024-12-09 | NEU: Reaktiver Flow 6 (Beurteilung-Korrektur freigeben) |
 | 2024-12-09 | NEU: Synchronisation mit Betrieb-Flow Tabelle |
+| 2024-12-10 | Login-Screen: "Login mit ByCS"-Button vorbereitet (V2-Feature) |

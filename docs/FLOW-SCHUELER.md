@@ -52,8 +52,13 @@
                                ▼
                     ┌─────────────────────┐
                     │   Login-Screen      │
-                    │  (Benutzername +    │
-                    │   Passwort)         │
+                    │                     │
+                    │  • Benutzername +   │
+                    │    Passwort         │
+                    │                     │
+                    │  • [Login mit ByCS] │
+                    │    (V2, deaktiviert │
+                    │    in V1)           │
                     └──────────┬──────────┘
                                │
                                ▼
@@ -448,6 +453,9 @@
                        │
                        ▼
                  (Phase 2: Vertrag)
+
+> **Details zu Teilzusagen:** Siehe ENTSCHEIDUNGEN-SCHUELER.md
+> (Dringlichkeit, Dashboard-Varianten, Bewertung bei mehreren Betrieben)
 ```
 
 ---
@@ -1122,3 +1130,4 @@
 | 2024-12-08 | NEU: Zertifikat herunterladen in Phase 4 |
 | 2024-12-08 | Synchronisation-Tabelle: Phase 5 Einträge ergänzt |
 | 2024-12-08 | NEU: E-Mail-Warnung bei Sammel-Adressen (info@, kontakt@, etc.) |
+| 2024-12-10 | Login-Screen: "Login mit ByCS"-Button vorbereitet (V2-Feature) |

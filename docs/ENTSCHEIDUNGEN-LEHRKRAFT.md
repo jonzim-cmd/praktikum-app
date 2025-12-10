@@ -345,10 +345,11 @@ Wenn Lehrkraft einen bestätigten Termin absagen muss (Krankheit, Notfall):
 - **Bestätigen** oder **Ablehnen** (mit Grund)
 - Hinweis: Bei Zweifeln kann beim Betrieb nachgefragt werden
 
-### Zuständigkeit konfigurierbar
-- **Default:** Betreuende Lehrkraft prüft
-- **Option:** Zentral (Sekretariat/Admin) – im Admin-Bereich einstellbar
-- Bei "Zentral": Alle Nachweise gehen an zuständige(n) Admin(s)
+### Zuständigkeit
+- Sowohl **Lehrkraft** als auch **Admin** haben Berechtigung zur Genehmigung
+- Schule entscheidet selbst, wer Nachholungen in der Praxis prüft
+- Wer zuerst handelt, bearbeitet
+- Kein konfigurierter Default – flexible Handhabung pro Schule
 
 ---
 
@@ -389,13 +390,39 @@ Wenn Lehrkraft einen bestätigten Termin absagen muss (Krankheit, Notfall):
 
 ---
 
-## Bewertung mit mehreren Betrieben
+## Teilzusagen & Bewertung mit mehreren Betrieben
 
-### Gewichteter Durchschnitt
+> **Details:** Vollständige Teilzusage-Logik siehe `ENTSCHEIDUNGEN-SCHUELER.md`
+
+### Sichtbarkeit für Lehrkraft
+
+**Bei Einspruch-Prüfung (Zusage-Details):**
+- System zeigt, ob Teilzusage: "5 von 10 Tagen abgedeckt"
+- Zeigt fehlende Tage/Zeiträume
+- Lehrkraft kann informiert entscheiden (Einspruch wegen unvollständiger Abdeckung ist KEIN vorgesehener Grund)
+
+**In Schüler-Übersicht:**
+- Eigene Kategorie "⚠️ TEILZUSAGE" für Schüler mit unvollständiger Abdeckung
+- Zeigt: "5/10 Tage" + Betriebsname + welche Woche
+
+**Während Praktikum:**
+- Dashboard fokussiert auf aktuelles Praktikum
+- Bei zusammenhängenden Blöcken: Warnung wenn Folge-Block nicht gesichert
+- Bei getrennten Blöcken (z.B. Feb + Juli): Normale Priorität, Info statt Warnung
+
+### Gewichteter Durchschnitt bei Bewertung
 - Schüler mit 2+ Praktikumsblöcken bei verschiedenen Betrieben
 - System zeigt alle Betriebsbewertungen einzeln
 - Automatischer gewichteter Durchschnitt nach Tagen
 - Lehrkraft sieht Einzelwerte + Gesamtdurchschnitt
+
+**Beispiel:**
+```
+Betrieb A (5 Tage): ★★★★☆ (4.0)
+Betrieb B (5 Tage): ★★★☆☆ (3.0)
+────────────────────────────────
+Gewichtet:          ★★★★☆ (3.5)
+```
 
 ---
 
@@ -567,3 +594,4 @@ Betrieb hat Beurteilung abgesendet, möchte aber nachträglich korrigieren.
 | 2024-12-09 | GEÄNDERT: Status "Bei Schulleitung" blockiert Prozess nicht |
 | 2024-12-09 | NEU: Betrieb-Account bei "Bei Schulleitung" erstellen (konfigurierbar) |
 | 2024-12-09 | NEU: Rollen-Zuweisung mit 3 Ebenen (Schul-Default, Pro LK, Selbständerung) |
+| 2024-12-10 | ERWEITERT: Teilzusagen-Sichtbarkeit für Lehrkraft (Einspruch, Übersicht, Dashboard) |

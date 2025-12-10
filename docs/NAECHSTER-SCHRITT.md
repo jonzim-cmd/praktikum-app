@@ -23,11 +23,165 @@ Die Grundkonzeption ist abgeschlossen:
 | `ENTSCHEIDUNGEN-LEHRKRAFT.md` | ✅ Fertig |
 | `ENTSCHEIDUNGEN-BETRIEB.md` | ✅ Fertig |
 | `SKALIERBARKEIT.md` | ✅ Grundstruktur fertig |
-| `DATENSCHUTZ.md` | ⏳ **TODO** |
+| `ENTSCHEIDUNGEN-DATENSCHUTZ.md` | ✅ Fertig (inkl. VIDIS/ByCS) |
 | `EDGE-CASES.md` | ✅ In Arbeit |
 | `V2-FEATURES.md` | ✅ Fertig |
-| `FLOW-ADMIN.md` | ⏳ **TODO** |
-| `FLOW-SUPERADMIN.md` | ⏳ **TODO** |
+| `ENTSCHEIDUNGEN-ADMIN.md` | ✅ Fertig |
+| `FLOW-ADMIN.md` | ✅ Fertig (inkl. Superadmin-Flow) |
+| `architektur/OVERVIEW.md` | ✅ Fertig |
+| `architektur/KERN-ENTITAETEN.md` | ✅ Fertig |
+| `architektur/MODULE.md` | ✅ 29 Module dokumentiert (Validierung offen) |
+| `architektur/EVENTS.md` | 🔄 In Arbeit (Konsolidierung offen) |
+| `architektur/PROFILE.md` | 🔄 In Arbeit (WS Bayern Entwurf, Finalisierung offen) |
+| `architektur/VOLLSTAENDIGKEITSPRUEFUNG.md` | ✅ Fertig |
+
+---
+
+## 🚨 AKTUELL: Architektur-Validierung
+
+> Admin-Flow ist fertig. Nächster Schritt: Architektur-Validierung.
+> Danach: Tech-Entscheidungen und Implementierung.
+
+---
+
+## ✅ ERLEDIGT: Architektur-Module vervollständigen
+
+### Was wurde gemacht
+
+FLOW-SCHUELER.md wurde analysiert und in die Architektur-Dokumente überführt:
+- Kern-Entitäten extrahiert (Student, Business, Period, Placement, Attendance)
+- 15 Module identifiziert und dokumentiert
+- Event-Katalog begonnen
+- WS Bayern Profil als Entwurf erstellt
+
+### Was noch fehlt
+
+**Schritt 1: FLOW-LEHRKRAFT.md + ENTSCHEIDUNGEN-LEHRKRAFT.md analysieren** ✅ ERLEDIGT
+
+```
+Ergebnis (vollständig):
+
+NEUE MODULE (10 Stück):
+1. ✅ visit_scheduling (Praxisbesuche planen)
+2. ✅ inbox (Aufgaben-Queue für Lehrkraft)
+3. ✅ batch_operations (Mehrere Schüler gleichzeitig)
+4. ✅ notification_settings (Benachrichtigungs-Einstellungen)
+5. ✅ teacher_reminders (Erinnerungen AN Lehrkräfte)
+6. ✅ business_blacklist (Betrieb-Sperrliste)
+7. ✅ onboarding (Einführung beim ersten Login)
+8. ✅ duplicate_detection (Betrieb-Duplikaterkennung mit Photon API)
+9. ✅ teacher_assignment (Betreuungs-Zuweisung)
+10. ✅ archival (Archivierung + DSGVO-Löschung)
+
+ERWEITERTE MODULE (5 Stück):
+- ✅ approval_window: Einspruch-Workflow, Ferien pausieren NICHT
+- ✅ contract: Status "Bei Schulleitung", business_account_trigger konfigurierbar
+- ✅ catch_up: Zuständigkeit konfigurierbar (teacher/admin)
+- ✅ grading: Mehrere LK, Rollen-Zuweisung (3 Ebenen), Fallback ohne Betrieb
+- ✅ business_feedback: Korrektur-Workflow (Freigabe durch LK)
+
+EVENTS:
+- ✅ ~30 neue Events dokumentiert
+- ✅ Event-Flüsse (Betriebsbesuch, Korrekturanfrage)
+
+Aktuelle Modul-Anzahl: 25 (vorher 15)
+```
+
+**Schritt 2: FLOW-BETRIEB.md + ENTSCHEIDUNGEN-BETRIEB.md analysieren** ✅ ERLEDIGT
+
+```
+Ergebnis (vollständig):
+
+NEUE MODULE (4 Stück):
+1. ✅ business_account (Account-Erstellung, Multi-Auth: Magic Link/Passwort/Passkey)
+2. ✅ attendance_confirmation (Wöchentliche Bestätigung, KEINE stillschweigende Bestätigung!)
+3. ✅ praktikumsdatenbank (Opt-in für Betriebe als Praktikumsanbieter)
+4. ✅ email_templates (6 E-Mail-Typen für Betriebskommunikation)
+
+ERWEITERTE MODULE (2 Stück):
+- ✅ onboarding: Betrieb-spezifisches Onboarding (3 Screens)
+- ✅ visit_scheduling: Betrieb-Verfügbarkeit (2h-Slots), Terminvorschlag-UI
+
+EVENTS:
+- ✅ ~17 neue Events dokumentiert
+- ✅ Event-Flüsse (Betrieb-Onboarding, Wöchentliche Anwesenheitsbestätigung)
+
+Aktuelle Modul-Anzahl: 29 (vorher 25)
+```
+
+**Schritt 3: Vollständigkeitsprüfung (Validierung)** ✅ ERLEDIGT
+
+```
+Ergebnis (vollständig):
+
+NEU ERSTELLT:
+- ✅ architektur/VOLLSTAENDIGKEITSPRUEFUNG.md
+
+LÜCKEN IDENTIFIZIERT UND GESCHLOSSEN:
+
+1. ✅ business_account erweitert:
+   - "Problem melden" Flow (falsche E-Mail)
+   - Kollegen einladen
+   - Aktivitäts-Tracking
+   - Link-Gültigkeits-Details
+   - 4 neue Parameter
+
+2. ✅ attendance_confirmation erweitert:
+   - Sammel-Ansicht für mehrere Praktikanten
+   - Hinweis: Eine E-Mail für alle
+
+3. ✅ business_feedback erweitert:
+   - Auto-Save dokumentiert
+   - Sammel-Ansicht für mehrere Praktikanten
+   - "Speichern & Nächster" Button
+   - 2 neue Parameter
+
+Noch offene Lücken (niedrige Priorität):
+- Lehrkraft-E-Mail-Templates (nur Betrieb-Templates dokumentiert)
+- Zentrales Erinnerungs-Schema (3→5→7 Tage)
+- Teilzusage-Logik Details
+
+Aktuelle Modul-Anzahl: 29 (unverändert, aber deutlich erweitert)
+```
+
+**Schritt 4: Events konsolidieren** ⏳ OFFEN
+
+```
+Aufgabe:
+1. Prüfe architektur/EVENTS.md auf Vollständigkeit
+2. Stelle sicher: Jedes Event hat Produzent + Konsumenten
+3. Prüfe: Sind alle Modul-Outputs als Events dokumentiert?
+4. Erstelle Event-Fluss-Diagramme für wichtige Prozesse
+
+Status: Nicht begonnen
+```
+
+**Schritt 5: Profile finalisieren** ⏳ OFFEN
+
+```
+Aufgabe:
+1. Prüfe architektur/PROFILE.md
+2. WS Bayern Profil: Sind alle Module korrekt konfiguriert?
+3. MS Bayern Entwurf: Ist er realistisch basierend auf ISB-Handreichung?
+4. Dokumentiere: Welche Parameter können Schulen überschreiben?
+
+Status: Nicht begonnen (nur Entwürfe vorhanden)
+```
+
+**Schritt 6: Final Review** 🔄 TEILWEISE
+
+```
+Aufgabe:
+1. Lies alle FLOW-*.md und ENTSCHEIDUNGEN-*.md
+2. Prüfe: Ist jede dokumentierte Entscheidung in einem Modul abgebildet?
+3. Prüfe: Sind alle UI-Elemente durch Module abgedeckt?
+4. Liste Lücken auf und ergänze
+
+Status: TEILWEISE ERLEDIGT
+- ✅ VOLLSTAENDIGKEITSPRUEFUNG.md erstellt (systematischer Abgleich)
+- ✅ Identifizierte Lücken geschlossen
+- ❌ Admin-Flow fehlt noch → Review erst nach Admin-Flow sinnvoll
+```
 
 ---
 
@@ -143,40 +297,58 @@ Nach Abschluss der Konzeptphase:
 - [ ] Tech-Stack festlegen
 - [ ] Architektur-Entscheidungen dokumentieren
 - [ ] MVP-Scope definieren (was ist Minimum für Pilot?)
+- [ ] **Auth-System modular implementieren** (für spätere VIDIS/OIDC-Erweiterung)
+
+### VIDIS/ByCS-Login (V2-Vorbereitung)
+
+> Dokumentiert in `ENTSCHEIDUNGEN-DATENSCHUTZ.md` Sektion 17
+
+**V1:** Passwort-Login für Schüler/Lehrkräfte (Pilotphase)
+**V2:** + VIDIS/ByCS-Login als Option (nach erfolgreichem Pilot)
+
+**Technische Vorbereitung (bereits in V1):**
+- Auth-Provider OIDC-fähig wählen (Better Auth, NextAuth, Lucia)
+- Login-Screen: Platz für "Login mit ByCS"-Button vorsehen (deaktiviert)
+- Datenverarbeitung EU-only (Hetzner) ✅
+- Löschung nach 18 Monaten Inaktivität einplanen
+
+**Links:**
+- https://www.vidis.schule/bildungsanbieter/
+- https://www.vidis.schule/wp-content/uploads/sites/10/2024/12/Pruefkriterien-VIDIS-V0.2.pdf
 
 ---
 
 ## Empfohlene Reihenfolge
 
 ```
-1. Flows auf Konsistenz prüfen
-   └── Widersprüche finden und beheben
+KONZEPT-PHASE (wo wir sind):
 
-2. Flows auf Datenschutz prüfen
-   └── DATENSCHUTZ.md ausarbeiten
-   └── Datensichtbarkeit pro Rolle definieren
-   └── Löschfristen und Einwilligungen klären
-   └── Implizite Annahmen in Flows explizit machen
+1. ✅ Flows erstellen (Schüler, Lehrkraft, Betrieb)
+2. ✅ Entscheidungen dokumentieren
+3. ✅ Module aus Flows extrahieren (29 Module)
+4. ✅ Vollständigkeitsprüfung (VOLLSTAENDIGKEITSPRUEFUNG.md)
+5. ✅ Teilzusage-Logik geklärt und dokumentiert
 
-3. Flows auf Skalierbarkeit prüfen
-   └── Hardcodierte Annahmen dokumentieren
-   └── SKALIERBARKEIT.md erweitern
-   └── (Jetzt mit Datenschutz-Wissen!)
+NOCH OFFEN (Konzept):
 
-4. Admin-Flow erstellen
-   └── Schuladmin-Flow
-   └── Superadmin-Flow
-   └── Konfigurationskonzept finalisieren
-   └── Datenschutz-Konfiguration einbauen
+6. ✅ Admin-Flow erstellen
+   └── Schuladmin-Flow ✅
+   └── Superadmin-Flow ✅
+   └── Konfigurationskonzept ✅
 
-5. Finaler Review
-   └── Alle Dokumente nochmal durchgehen
-   └── Lücken schließen
+7. ⏳ Architektur-Validierung       ← NÄCHSTER SCHRITT
+   └── Events konsolidieren (Schritt 4)
+   └── Profile finalisieren (Schritt 5)
+   └── Final Review (Schritt 6)
 
-6. Technische Phase starten
-   └── Datenmodell
-   └── Architektur
-   └── MVP-Scope
+IMPLEMENTIERUNGS-PHASE:
+
+8. Tech-Entscheidungen
+   └── Stack (Next.js? DB? Auth?)
+   └── Deployment
+   └── MVP-Scope definieren
+
+9. Implementierung starten
 ```
 
 ---
@@ -196,5 +368,75 @@ So haben wir bei den bisherigen Flows gearbeitet:
 
 ## Letzte Änderung
 
-**Datum:** 2024-12-08
-**Session:** Betrieb-Flow abgeschlossen, Skalierbarkeit als Pflicht definiert, nächste Schritte aktualisiert
+**Datum:** 2024-12-10
+**Session:** Teilzusage-Dokumentation + Statusupdate
+
+### Was in dieser Session passiert ist:
+
+1. **Teilzusage-Logik vollständig dokumentiert:**
+   - `ENTSCHEIDUNGEN-SCHUELER.md`: Ausführliche Sektion mit Dashboard-Mockups, Dringlichkeitsregeln
+   - `FLOW-SCHUELER.md`: Verweis auf Details
+   - `MODULE.md` (commitment): CommitmentCoverage-Entität, neue Events, Parameter
+   - `FLOW-LEHRKRAFT.md`: Teilzusage-Hinweis in Zusage-Details, eigene Kategorie in Übersicht
+   - `ENTSCHEIDUNGEN-LEHRKRAFT.md`: Sichtbarkeit für Lehrkraft dokumentiert
+   - `VOLLSTAENDIGKEITSPRUEFUNG.md`: Teilzusage als ✅ markiert
+
+2. **Status geklärt:**
+   - Architektur-Validierung (Schritte 4, 5, 6) noch nicht vollständig
+   - Empfohlene Reihenfolge: Admin-Flow → dann Validierung → dann Tech-Entscheidungen
+
+3. **Nächster Schritt:** Admin-Flow erstellen
+
+---
+
+### Vorherige Session (2024-12-10): Vollständigkeitsprüfung
+
+#### Was passiert ist:
+
+1. **Vollständigkeitsprüfung durchgeführt:**
+   - Alle FLOW-*.md und ENTSCHEIDUNGEN-*.md systematisch gegen MODULE.md geprüft
+   - Checkliste erstellt: `architektur/VOLLSTAENDIGKEITSPRUEFUNG.md`
+   - Lücken identifiziert und priorisiert
+
+2. **Lücken geschlossen:**
+   - `business_account` erweitert:
+     - "Problem melden" Flow (falsche E-Mail)
+     - Kollegen einladen
+     - Aktivitäts-Tracking
+     - Link-Gültigkeits-Details
+     - 4 neue Parameter
+   - `attendance_confirmation` erweitert:
+     - Sammel-Ansicht für mehrere Praktikanten
+   - `business_feedback` erweitert:
+     - Auto-Save dokumentiert
+     - Sammel-Ansicht für mehrere Praktikanten
+     - 2 neue Parameter
+
+3. **Verbleibende Lücken (niedrige Priorität):**
+   - Lehrkraft-E-Mail-Templates
+   - Zentrales Erinnerungs-Schema
+   - Teilzusage-Logik Details
+
+4. **Aktueller Modul-Stand:**
+   - 29 Module (unverändert, aber deutlich erweitert)
+
+5. **Nächster Schritt:**
+   - Events konsolidieren (Schritt 4)
+   - Profile finalisieren (Schritt 5)
+
+### Vorherige Sessions:
+
+**2024-12-10 (Betrieb-Flow):**
+- 4 neue Module (business_account, attendance_confirmation, praktikumsdatenbank, email_templates)
+- 2 Module erweitert (onboarding, visit_scheduling)
+- ~17 neue Events
+
+**2024-12-10 (Lehrkraft-Flow):**
+- 10 neue Module aus FLOW-LEHRKRAFT.md
+- 5 Module erweitert
+- ~30 neue Events
+
+**2024-12-10 (Schüler-Flow):**
+- Architektur-Dokumentation begonnen
+- 15 Module aus Schüler-Flow extrahiert
+- Kern-Entitäten definiert

@@ -110,6 +110,11 @@ Details: `docs/SKALIERBARKEIT.md`
 
 ---
 
-## Hinweis zum alten Code
+## Bei Implementierung
 
-Der Ordner enthält noch Code aus einem früheren Implementierungsversuch. Dieser ist **nicht relevant** für die aktuelle Konzeptphase. Ignorieren und nicht referenzieren.
+- **`docs/architektur/MODULE.md`** → Hauptreferenz (Entitäten, Parameter, Events)
+- **`docs/FLOW-*.md`** → für UI/UX-Fragen
+- **`docs/ENTSCHEIDUNGEN-*.md`** → bei Unklarheit nachschlagen
+
+---
+

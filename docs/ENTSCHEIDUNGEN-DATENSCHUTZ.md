@@ -395,6 +395,136 @@ Wenn Consent-basierte Features hinzukommen:
 
 ---
 
+## 17. VIDIS / BayernCloud Schule (ByCS) Login
+
+> **Ziel:** Schüler und Lehrkräfte sollen sich später mit ihren bestehenden ByCS-Zugangsdaten einloggen können – kein separates Passwort nötig.
+
+### Was ist VIDIS?
+
+**VIDIS** (Vermittlungsdienst für digitales Identitätsmanagement in Schulen) ist ein länderübergreifendes Projekt aller 16 Bundesländer im Rahmen des DigitalPakts Schule. Es ermöglicht Single Sign-On (SSO) für digitale Bildungsangebote.
+
+- **Betreiber:** FWU (Institut für Film und Bild)
+- **Technologie:** OpenID Connect (OIDC)
+- **Reichweite:** Alle 16 Bundesländer (nicht nur Bayern!)
+
+### Strategie für practical
+
+| Phase | Login-Methode | Status |
+|-------|---------------|--------|
+| **V1 (Pilot)** | Passwort-Login | Default |
+| **V2 (nach Pilot)** | Passwort + VIDIS/ByCS als Option | Geplant |
+
+**Begründung:**
+- V1 soll schnell starten ohne Abhängigkeit von Drittanbietern
+- VIDIS-Anbindung erfordert Prüfprozess durch FWU (Zeitaufwand unklar)
+- Nach erfolgreichem Pilot: VIDIS-Registrierung starten
+
+### VIDIS-Anforderungen (Vorbereitung)
+
+Damit practical später VIDIS-kompatibel ist, müssen folgende Anforderungen **bereits in V1** berücksichtigt werden:
+
+| Anforderung | Status | Umsetzung |
+|-------------|--------|-----------|
+| **Datenverarbeitung nur in EU** | ✅ Erfüllt | Hetzner (Deutschland) |
+| **Datensparsamkeit** | ✅ Erfüllt | Nur notwendige Daten |
+| **Löschung nach 18 Monaten Inaktivität** | ⚠️ Prüfen | In Löschkonzept aufnehmen |
+| **Recht auf Datenübertragbarkeit** | ⚠️ Planen | Export-Funktion vorsehen |
+| **AVV mit VIDIS** | ⏳ Später | Bei Anbindung abschließen |
+| **OIDC-fähige Authentifizierung** | ✅ Vorbereitet | Auth-System modular halten |
+
+### Technische Vorbereitung (WICHTIG für Implementierung)
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  AUTHENTIFIZIERUNG MODULAR IMPLEMENTIEREN                       │
+│                                                                 │
+│  Auth-Provider so wählen/bauen, dass später OIDC ergänzt       │
+│  werden kann ohne großes Refactoring.                          │
+│                                                                 │
+│  Empfohlene Libraries:                                         │
+│  • Better Auth (unterstützt OIDC out-of-box)                   │
+│  • NextAuth/Auth.js (OIDC-Provider verfügbar)                  │
+│  • Lucia (flexibel, OIDC erweiterbar)                          │
+│                                                                 │
+│  Login-Screen vorbereiten:                                      │
+│  • Platz für "Login mit ByCS"-Button vorsehen                  │
+│  • Button in V1 ausgeblendet oder deaktiviert                  │
+│  • Bei Aktivierung: OIDC-Flow zu VIDIS                         │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### VIDIS-Datenfluss (bei späterer Anbindung)
+
+```
+Schüler/Lehrkraft klickt "Login mit ByCS"
+        │
+        ▼
+Weiterleitung zu VIDIS (aai.vidis.schule)
+        │
+        ▼
+VIDIS leitet zu Landes-IdP (ByCS für Bayern)
+        │
+        ▼
+Login mit ByCS-Zugangsdaten
+        │
+        ▼
+VIDIS sendet OIDC-Token an practical
+        │
+        ▼
+practical erstellt/verknüpft lokalen Account
+        │
+        ▼
+Nutzer ist eingeloggt
+```
+
+### Welche Daten liefert VIDIS?
+
+| Attribut | Beschreibung | Nutzung |
+|----------|--------------|---------|
+| `sub` | Eindeutige User-ID | Account-Verknüpfung |
+| `given_name` | Vorname | Anzeige |
+| `family_name` | Nachname | Anzeige |
+| `email` | E-Mail (falls freigegeben) | Kontakt |
+| `org_id` | Schul-Kennung | Schul-Zuordnung |
+| `role` | Rolle (Schüler/Lehrer) | Berechtigungen |
+
+**Hinweis:** Exakte Claims hängen von Landes-IdP ab. Nicht alle Felder sind garantiert.
+
+### Vorteile der VIDIS-Anbindung
+
+1. **Kein separates Passwort** für Schüler/Lehrer
+2. **Datenschutz-Bonus:** Staatlich geprüfte Infrastruktur
+3. **Skalierung:** Mit einer VIDIS-Anbindung funktioniert Login in allen 16 Bundesländern
+4. **Vertrauensvorsprung:** "Login mit ByCS" signalisiert offizielle Integration
+5. **Weniger Support:** Kein "Passwort vergessen" für Schul-Nutzer
+
+### Einschränkungen
+
+- **Nur für Schüler + Lehrkräfte:** Betriebe haben keine ByCS-Accounts
+- **Abhängigkeit:** Wenn ByCS/VIDIS down ist, funktioniert dieser Login nicht
+- **Fallback nötig:** Passwort-Login muss parallel existieren bleiben
+
+### Links & Ressourcen
+
+| Ressource | URL |
+|-----------|-----|
+| **VIDIS für Bildungsanbieter** | https://www.vidis.schule/bildungsanbieter/ |
+| **VIDIS Prüfkriterien (2024)** | https://www.vidis.schule/wp-content/uploads/sites/10/2024/12/Pruefkriterien-VIDIS-V0.2.pdf |
+| **Whitepaper Service Provider** | https://www.vidis.schule/wp-content/uploads/sites/10/2024/08/Erweiterte-Inbetriebnahmephase-Whitepaper-zur-Anbindung-an-VIDIS-fuer-Service-Provider-v60-20240813_112511.pdf |
+| **ByCS Login-Info** | https://www.bycs.de/uebersicht-und-funktionen/login-mit-bycs/index.html |
+| **VIDIS Datenschutz** | https://www.vidis.schule/datenschutz-bei-vidis/ |
+| **FWU Projektseite** | https://fwu.de/projekte/vidis-2/ |
+
+### TODO für V2
+
+- [ ] VIDIS-Portal-Registrierung starten (nach erfolgreichem Pilot)
+- [ ] Datenschutz-Dokumente für VIDIS vorbereiten
+- [ ] Pilotvertrag mit FWU abschließen
+- [ ] Technische Anbindung am Testsystem (aai-test.vidis.schule)
+- [ ] "Login mit ByCS"-Button aktivieren
+
+---
+
 ## Noch offen
 
 - [ ] Photon API testen und Setup dokumentieren
@@ -412,3 +542,7 @@ Wenn Consent-basierte Features hinzukommen:
 |-------|----------|
 | 2024-12-09 | Initiale Version mit allen Datenschutz-Entscheidungen |
 | 2024-12-09 | Passkeys für Betrieb bereits in V1 (statt V2) |
+| 2024-12-10 | NEU: Sektion 17 – VIDIS/ByCS-Login (SSO für Schüler/Lehrkräfte) |
+| 2024-12-10 | Strategie: V1 Passwort, V2 + VIDIS als Option |
+| 2024-12-10 | Technische Vorbereitung: Auth modular für spätere OIDC-Erweiterung |
+| 2024-12-10 | VIDIS-Prüfkriterien und Ressourcen-Links dokumentiert |

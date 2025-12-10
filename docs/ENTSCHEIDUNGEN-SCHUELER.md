@@ -113,10 +113,65 @@
 - **Wochenenden pausieren den Timer** (Default)
 - Ferien pausieren NICHT (Schüler können in Ferien Zusagen bekommen)
 
-### Teilzusage
-- Wenn nur Teil der benötigten Tage abgedeckt
-- Dashboard zeigt: Vertragsprozess für Betrieb A + "Du brauchst noch X Tage"
-- Parallele Phasen möglich: Vertrag + weitere Bewerbungen
+### Teilzusage (mehrere Blöcke/Betriebe)
+
+**Kontext:**
+- Schule definiert Gesamtzeitraum (z.B. 03.-14.02.) und Gesamttage (z.B. 10 Tage)
+- Schule kann Mindest-Blockgröße definieren (z.B. min. 5 Tage am Stück)
+- Betrieb bietet evtl. nur Teil der Tage an ("Wir nehmen nur für 1 Woche")
+- Schüler muss dann weiteren Betrieb für restliche Tage finden
+
+**Ablauf:**
+1. Schüler gibt Zusage ein (z.B. 5 Tage bei Betrieb A, 10.-14.02.)
+2. System prüft: Sind alle Tage abgedeckt?
+3. Wenn nein → Dashboard zeigt:
+   - Laufender Vertragsprozess für Betrieb A
+   - UND "Du brauchst noch X Tage für [Zeitraum]"
+   - Bewerbungsphase bleibt aktiv für restliche Tage
+
+**Dashboard bei Teilzusage:**
+```
+┌─────────────────────────────────────────┐
+│ ⚠️ Noch 5 Tage offen (03.-07.02.)       │
+│    [Weiter bewerben]                    │
+├─────────────────────────────────────────┤
+│ ✓ Betrieb A: 10.-14.02. (5 Tage)        │
+│   Status: Warte auf Freigabe            │
+└─────────────────────────────────────────┘
+```
+
+**Wenn alle Tage abgedeckt:**
+```
+┌─────────────────────────────────────────┐
+│ Praktikum: 03.-14.02. (10 Tage) ✓       │
+├─────────────────────────────────────────┤
+│ Betrieb A: 03.-07.02.                   │
+│ Status: Vertrag unterschreiben          │
+├─────────────────────────────────────────┤
+│ Betrieb B: 10.-14.02.                   │
+│ Status: Warte auf Freigabe              │
+└─────────────────────────────────────────┘
+```
+
+**Dringlichkeit bei aufeinanderfolgenden Blöcken:**
+- Wenn Block 2 direkt auf Block 1 folgt → Beide Verträge MÜSSEN vor Block 1 stehen
+- Wenn Schüler in Block 1 ist und Block 2 noch nicht gesichert → 🚨 DRINGEND
+- Lehrkraft wird ebenfalls gewarnt
+- System verhindert Praktikumsstart NICHT (Lehrkraft entscheidet)
+- Fehlende Tage können in Phase 5 (Nachholen) außerhalb der Schulzeit nachgeholt werden
+
+**Dringlichkeit bei zeitlich getrennten Blöcken:**
+- Wenn Block 2 mehrere Wochen/Monate nach Block 1 liegt → Ampel-Logik greift
+- Während Block 1: Fokus auf aktuelles Praktikum, Block 2 wird normal angezeigt
+- Nach Block 1: Ampel für Block 2 wird relevanter
+
+**Bewertung bei mehreren Betrieben:**
+- Jeder Betrieb bewertet nur "seine" Tage
+- Gesamtnote: Gewichteter Durchschnitt nach Tagen (siehe ENTSCHEIDUNGEN-LEHRKRAFT.md)
+
+**Anwesenheit bei mehreren Betrieben:**
+- Jeder Betrieb bestätigt nur seine Tage
+- Jeder Betrieb bekommt eigenen Account
 
 ### Zusage zurückziehen
 
@@ -329,7 +384,7 @@
 
 - [x] ~~Gamification~~ → V2-Feature (siehe V2-FEATURES.md)
 - [x] ~~Eltern-Benachrichtigung bei Krankmeldung~~ → V2-Feature (optional, pro Schule)
-- [ ] Genauer Ablauf bei mehreren Betrieben für Teilzusagen
+- [x] ~~Genauer Ablauf bei mehreren Betrieben für Teilzusagen~~ → Dokumentiert in "Teilzusage (mehrere Blöcke/Betriebe)"
 
 ---
 
@@ -346,3 +401,4 @@
 | 2024-12-09 | NEU: Zusage zurückziehen (vor Vertragsstart) |
 | 2024-12-09 | NEU: System verhindert zwei Zusagen für gleichen Zeitraum |
 | 2024-12-09 | GEÄNDERT: Zertifikat – Zwei Varianten (vollständig / vorläufig) |
+| 2024-12-10 | ERWEITERT: Teilzusage – Vollständige Dokumentation (mehrere Blöcke/Betriebe, Dashboard, Dringlichkeit) |
