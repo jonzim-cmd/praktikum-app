@@ -15,32 +15,39 @@ Die Grundkonzeption ist abgeschlossen:
 
 | Dokument | Status |
 |----------|--------|
+| **KONZEPT** | |
 | `KONZEPT-V2.md` | ✅ Fertig |
+| `SKALIERBARKEIT.md` | ⚠️ Muss befüllt werden |
+| `EDGE-CASES.md` | ✅ Fertig |
+| `V2-FEATURES.md` | ✅ Fertig |
+| **FLOWS** | |
 | `FLOW-SCHUELER.md` | ✅ Fertig |
 | `FLOW-LEHRKRAFT.md` | ✅ Fertig |
 | `FLOW-BETRIEB.md` | ✅ Fertig |
+| `FLOW-ADMIN.md` | ✅ Fertig (inkl. Superadmin-Flow) |
+| **ENTSCHEIDUNGEN** | |
 | `ENTSCHEIDUNGEN-SCHUELER.md` | ✅ Fertig |
 | `ENTSCHEIDUNGEN-LEHRKRAFT.md` | ✅ Fertig |
 | `ENTSCHEIDUNGEN-BETRIEB.md` | ✅ Fertig |
-| `SKALIERBARKEIT.md` | ✅ Grundstruktur fertig |
-| `ENTSCHEIDUNGEN-DATENSCHUTZ.md` | ✅ Fertig (inkl. VIDIS/ByCS) |
-| `EDGE-CASES.md` | ✅ In Arbeit |
-| `V2-FEATURES.md` | ✅ Fertig |
 | `ENTSCHEIDUNGEN-ADMIN.md` | ✅ Fertig |
-| `FLOW-ADMIN.md` | ✅ Fertig (inkl. Superadmin-Flow) |
+| `ENTSCHEIDUNGEN-DATENSCHUTZ.md` | ✅ Fertig (inkl. VIDIS/ByCS) |
+| **ARCHITEKTUR** | |
 | `architektur/OVERVIEW.md` | ✅ Fertig |
 | `architektur/KERN-ENTITAETEN.md` | ✅ Fertig |
-| `architektur/MODULE.md` | ✅ 29 Module dokumentiert (Validierung offen) |
-| `architektur/EVENTS.md` | 🔄 In Arbeit (Konsolidierung offen) |
-| `architektur/PROFILE.md` | 🔄 In Arbeit (WS Bayern Entwurf, Finalisierung offen) |
+| `architektur/MODULE.md` | ✅ ~40 Module dokumentiert |
+| `architektur/EVENTS.md` | ✅ Fertig |
+| `architektur/PROFILE.md` | ✅ Fertig (WS Bayern + MS Bayern) |
 | `architektur/VOLLSTAENDIGKEITSPRUEFUNG.md` | ✅ Fertig |
+| **TECH & DESIGN** | |
+| `TECH-STACK.md` | ✅ NEU – Fertig |
+| `DESIGN.md` | ✅ NEU – Fertig |
 
 ---
 
-## 🚨 AKTUELL: Architektur-Validierung
+## 🚨 AKTUELL: Bereit für Implementierung
 
-> Admin-Flow ist fertig. Nächster Schritt: Architektur-Validierung.
-> Danach: Tech-Entscheidungen und Implementierung.
+> Konzeptphase abgeschlossen. Tech-Stack und Design dokumentiert.
+> **Nächster Schritt:** Implementierung starten oder SKALIERBARKEIT.md befüllen.
 
 ---
 
@@ -321,34 +328,46 @@ Nach Abschluss der Konzeptphase:
 ## Empfohlene Reihenfolge
 
 ```
-KONZEPT-PHASE (wo wir sind):
+KONZEPT-PHASE: ✅ ABGESCHLOSSEN
 
-1. ✅ Flows erstellen (Schüler, Lehrkraft, Betrieb)
-2. ✅ Entscheidungen dokumentieren
-3. ✅ Module aus Flows extrahieren (29 Module)
-4. ✅ Vollständigkeitsprüfung (VOLLSTAENDIGKEITSPRUEFUNG.md)
-5. ✅ Teilzusage-Logik geklärt und dokumentiert
+1. ✅ Flows erstellen (Schüler, Lehrkraft, Betrieb, Admin)
+2. ✅ Entscheidungen dokumentieren (alle Rollen + Datenschutz)
+3. ✅ Module aus Flows extrahieren (~40 Module)
+4. ✅ Vollständigkeitsprüfung durchgeführt
+5. ✅ Events konsolidiert
+6. ✅ Profile finalisiert (WS Bayern + MS Bayern)
 
-NOCH OFFEN (Konzept):
+TECH & DESIGN: ✅ ABGESCHLOSSEN
 
-6. ✅ Admin-Flow erstellen
-   └── Schuladmin-Flow ✅
-   └── Superadmin-Flow ✅
-   └── Konfigurationskonzept ✅
+7. ✅ Tech-Stack dokumentiert (TECH-STACK.md)
+   └── Next.js 15, TypeScript, PostgreSQL, Drizzle
+   └── Better Auth (OIDC-ready für VIDIS)
+   └── Tailwind v4 + shadcn/ui
+   └── Hetzner + Coolify
 
-7. ⏳ Architektur-Validierung       ← NÄCHSTER SCHRITT
-   └── Events konsolidieren (Schritt 4)
-   └── Profile finalisieren (Schritt 5)
-   └── Final Review (Schritt 6)
+8. ✅ Design System dokumentiert (DESIGN.md)
+   └── Dark Violet Theme (#694AFF)
+   └── Instrument Sans + IBM Plex Sans
+   └── Token-basiert, Single Source of Truth
 
-IMPLEMENTIERUNGS-PHASE:
+NOCH OFFEN:
 
-8. Tech-Entscheidungen
-   └── Stack (Next.js? DB? Auth?)
-   └── Deployment
-   └── MVP-Scope definieren
+9. ⚠️ SKALIERBARKEIT.md befüllen (aktuell leer)
+   └── Bundesland-Unterschiede dokumentieren
+   └── Schulart-Unterschiede dokumentieren
+   └── Konfigurations-Parameter auflisten
 
-9. Implementierung starten
+IMPLEMENTIERUNGS-PHASE: ← NÄCHSTER SCHRITT
+
+10. MVP-Scope definieren
+    └── Welche Module für Pilot?
+    └── Welche Features später?
+
+11. Implementierung starten
+    └── Projekt-Setup
+    └── DB-Schema
+    └── Auth
+    └── Erste Features
 ```
 
 ---

@@ -30,24 +30,34 @@
 
 ## Profil: Wirtschaftsschule Bayern (Pilot)
 
+> **Hinweis:** Die Wirtschaftsschule Bayern gibt es in zwei Varianten mit unterschiedlichen Praktikumsanforderungen (§15 WSO Bayern):
+> - **Zweistufig** (Jgst. 10 + 11): 15 Tage Praktikum
+> - **Drei-/Vierstufig** (Jgst. 8-10): 20 Tage Praktikum
+>
+> Das System verwendet **ein Profil** mit `required_days` als **Schul-überschreibbaren Parameter**.
+> Jede Schule setzt beim Onboarding ihren korrekten Wert (15 oder 20).
+
 ```yaml
 id: ws_bayern
 name: "Wirtschaftsschule Bayern"
-description: "20 Tage Pflichtpraktikum mit Benotung, mind. 2 Betriebe"
+description: "Pflichtpraktikum mit Benotung, mind. 2 Betriebe (15 oder 20 Tage je nach Schulform)"
 state: BY
 school_types: [ws]
 
 # ============================================================
 # KERN-PARAMETER
 # ============================================================
+# Hinweis: required_days ist ein Schul-überschreibbarer Parameter!
+# - Zweistufige WS: 15 Tage (Schule setzt in settings: required_days: 15)
+# - Drei-/Vierstufige WS: 20 Tage (Default)
 
 core:
-  required_days: 20
+  required_days: 20                 # Default für Drei-/Vierstufig, Schule kann auf 15 setzen
   min_businesses: 2
   max_days_per_business: 15
   allow_parallel_placements: false
-  allow_weekend_internship: false
-  allow_weekend_catch_up: true
+  allow_weekend_internship: false   # Während Praktikum: NEIN (muss während Schulzeit sein)
+  allow_weekend_catch_up: true      # Beim Nachholen: JA (außerhalb Schulzeit erlaubt)
 
 terms:
   internship: "Praktikum"
@@ -76,6 +86,8 @@ modules:
     period_required: false
     allow_withdraw: true
     prevent_overlapping: true
+    min_block_days: 5               # Mindest-Blockgröße bei Teilzusagen
+    allow_partial_commitments: true # Erlaubt Zusagen für weniger als alle erforderlichen Tage
 
   approval_window:
     enabled: true
@@ -96,7 +108,9 @@ modules:
     enabled: true
     required_signatures: ["parent", "business", "school"]
     school_signs_last: true
-    allow_digital_submission: true
+    allow_digital_submission: true    # In-App Scan mit Kantenerkennung möglich
+    at_school_reminder_days: 7        # Nach X Tagen bei Schulleitung: Erinnerung an LK
+    business_account_trigger: "at_school"  # Wann Betrieb-Account erstellen: "at_school" oder "approved"
 
   print_service:
     enabled: true
@@ -204,6 +218,36 @@ modules:
       teacher_impression:
         weight: 0.20
         source: teacher_assessment
+
+# ============================================================
+# ADMIN-KONFIGURATION
+# ============================================================
+# Diese Parameter werden beim Schul-Onboarding gesetzt.
+# Sie sind nicht im Profil fixiert, sondern Schul-individuell.
+
+admin_config:
+  # Betreuungs-Algorithmus
+  supervision:
+    mode: "hours_based"           # hours_based, equal, manual
+    prio_1_enabled: true          # ÜU-LK zuerst
+    prio_2_enabled: true          # Klassenleitung
+    min_capacity_threshold: 2     # Mindest-Stunden für Auto-Zuweisung
+
+  # Bewertungs-Rollen (betreuend vs. beurteilend)
+  grading_roles:
+    role_default: "both"          # supervising, assessing, both
+    allow_teacher_override: true  # LK kann selbst ändern
+
+  # Wiederholer
+  archival:
+    count_previous_days_on_repeat: false   # Default: Vorherige Tage NICHT anrechnen
+
+  # Deadlines
+  deadlines:
+    certificate_deadline_days: 3           # Attest-Frist in Tagen
+    grading_deadline: null                 # Datum für Noteneingabe, von Admin gesetzt
+    allow_teacher_extension: true          # LK darf Fristen verlängern
+    max_extension_days: 30                 # Maximale Verlängerung in Tagen
 ```
 
 ---
@@ -327,13 +371,14 @@ modules:
 
 | Feature | WS Bayern | MS Bayern |
 |---------|-----------|-----------|
-| Tage | 20 | 10 |
+| Tage | **15 oder 20** (je nach Schulform) | 10 |
 | Betriebe min. | 2 | 1 |
 | Einspruchsfenster | 36h | Nein |
 | Formeller Vertrag | Ja (3 Unterschriften) | Ja (2 Unterschriften) |
 | Benotung | Ja | Nein |
 | Betriebs-Feedback | Ja | Nein |
 | Lernaufgaben | 3 Formulare | Praktikumsmappe |
+| Teilzusagen | Ja (min. 5 Tage pro Block) | Ja |
 
 ---
 
@@ -355,6 +400,8 @@ description: "Alle Module einzeln konfigurierbar"
 
 ## Profil-Überschreibung durch Schule
 
+### Beispiel: Zweistufige Wirtschaftsschule
+
 ```yaml
 # In school.settings:
 
@@ -362,11 +409,12 @@ school:
   id: "..."
   name: "Städtische Wirtschaftsschule München"
   profile_id: ws_bayern
+  school_type_variant: "zweistufig"   # Für Dokumentation/Klarheit
 
   # Überschreibungen:
   settings:
     core:
-      required_days: 15           # Weniger als Standard
+      required_days: 15           # Zweistufig: 15 statt 20 Tage
     modules:
       approval_window:
         wait_hours: 48            # Längeres Fenster
@@ -375,6 +423,22 @@ school:
 ```
 
 **Effektiv:** Profil ws_bayern + Überschreibungen
+
+### Beispiel: Drei-/Vierstufige Wirtschaftsschule
+
+```yaml
+school:
+  id: "..."
+  name: "Staatliche Wirtschaftsschule Nürnberg"
+  profile_id: ws_bayern
+  school_type_variant: "vierstufig"
+
+  # Keine required_days-Überschreibung nötig, da Default = 20
+  settings:
+    modules:
+      print_service:
+        pickup_location: "Sekretariat Haus B"
+```
 
 ---
 
@@ -486,3 +550,9 @@ admin_config:
 | 2024-12-10 | Initiale Version mit WS Bayern |
 | 2024-12-10 | Entwurf MS Bayern hinzugefügt |
 | 2024-12-10 | NEU: Implementierungshinweise für Admin-Konfiguration |
+| 2024-12-10 | KORRIGIERT: required_days ist Schul-überschreibbar (15 für Zweistufig, 20 für Drei-/Vierstufig) |
+| 2024-12-10 | NEU: Teilzusagen-Parameter (min_block_days, allow_partial_commitments) |
+| 2024-12-10 | NEU: contract-Parameter (at_school_reminder_days, business_account_trigger) |
+| 2024-12-10 | NEU: admin_config Sektion im WS Bayern Profil |
+| 2024-12-10 | KORRIGIERT: Profil-Vergleich zeigt jetzt "15 oder 20" statt fix "20" |
+| 2024-12-10 | NEU: Beispiele für Zweistufige vs. Drei-/Vierstufige Schul-Überschreibungen |
